@@ -48,6 +48,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: install-python-3
         uses: actions/setup-python@v5
