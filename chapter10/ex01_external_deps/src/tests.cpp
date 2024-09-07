@@ -10,6 +10,4 @@
 
 #include <gtest/gtest.h>
 
-TEST(simple, test){
-    SUCCEED();
-}
+TEST(simple, test) { SUCCEED(); }

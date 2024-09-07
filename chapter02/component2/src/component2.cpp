@@ -11,8 +11,7 @@
 #include <cmath>
 #include <iostream>
 
-namespace framework {
-namespace components {
+namespace framework::components {
 
 component2::component2() {
   std::cout << "Component 2 is constructed" << std::endl;
@@ -25,5 +24,4 @@ component2::~component2() {
 bool component2::do_stuff() const { return true; }
 
 int component2::do_other_stuff(int param) { return std::sqrt(param) * 2; }
-} // namespace components
-} // namespace framework
+} // namespace framework::components

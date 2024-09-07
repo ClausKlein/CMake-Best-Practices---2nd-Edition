@@ -13,8 +13,6 @@
 #include <sstream>
 #include <string>
 
-
-
 int main(int, char **) {
   chapter4::ex07::greeter g;
   g.greet();

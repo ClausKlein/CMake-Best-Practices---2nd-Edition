@@ -8,8 +8,7 @@
 
 #pragma once
 
-namespace framework {
-namespace components {
+namespace framework::components {
 /**
  * @brief Component interface
  */
@@ -35,5 +34,4 @@ public:
    */
   virtual int do_other_stuff(int param) = 0;
 }; // class component_interface
-} // namespace components
-} // namespace framework
+} // namespace framework::components

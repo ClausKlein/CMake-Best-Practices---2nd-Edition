@@ -1,9 +1,9 @@
-#pragma once 
+#pragma once
 
 #include <string>
 
-namespace obscure::details{
+namespace obscure::details {
 
-    void print_impl(const std::string& name);
-    
+void print_impl(const std::string &name);
+
 }

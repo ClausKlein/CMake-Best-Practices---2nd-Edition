@@ -10,8 +10,7 @@
 
 #include <chapter6/ex01/calculator.hpp>
 
-namespace chapter6 {
-namespace ex01 {
+namespace chapter6::ex01 {
 
 double calculator::sum(double augend, double addend) {
   return last_result = augend + addend;
@@ -29,5 +28,4 @@ double calculator::div(double dividend, double divisor) {
   return last_result = dividend / divisor;
 }
 
-} // namespace ex01
-} // namespace chapter6
+} // namespace chapter6::ex01

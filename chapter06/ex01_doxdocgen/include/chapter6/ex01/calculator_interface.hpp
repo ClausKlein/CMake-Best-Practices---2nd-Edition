@@ -10,8 +10,7 @@
 
 #pragma once
 
-namespace chapter6 {
-namespace ex01 {
+namespace chapter6::ex01 {
 /**
  * @brief The 'calculator' class interface
  *
@@ -33,7 +32,8 @@ public:
    * Calculate the difference of @p rhs from @p lhs
    *
    * @param [in] minuend    The number to which @p subtrahend is subtracted
-   * @param [in] subtrahend The number which is to be subtracted from @p minuend
+   * @param [in] subtrahend The number which is to be subtracted from @p
+   * minuend
    *
    * @return double Difference of two numbers, @p minuend and @p subtrahend
    */
@@ -65,5 +65,4 @@ public:
    */
   virtual ~calculator_interface() = default;
 }; // class calculator_interface
-} // namespace ex01
-} // namespace chapter6
+} // namespace chapter6::ex01

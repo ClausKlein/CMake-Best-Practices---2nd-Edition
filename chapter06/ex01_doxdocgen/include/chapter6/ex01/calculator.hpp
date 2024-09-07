@@ -12,8 +12,7 @@
 
 #include <chapter6/ex01/calculator_interface.hpp>
 
-namespace chapter6 {
-namespace ex01 {
+namespace chapter6::ex01 {
 /**
  * @brief The basic 'calculator' class
  *
@@ -36,7 +35,8 @@ public:
    * Calculate the difference of @p rhs from @p lhs
    *
    * @param [in] minuend    The number to which @p subtrahend is subtracted
-   * @param [in] subtrahend The number which is to be subtracted from @p minuend
+   * @param [in] subtrahend The number which is to be subtracted from @p
+   * minuend
    *
    * @return double Difference of two numbers, @p minuend and @p subtrahend
    */
@@ -68,5 +68,4 @@ public:
    */
   double last_result{};
 }; // class calculator
-} // namespace ex01
-} // namespace chapter6
+} // namespace chapter6::ex01
