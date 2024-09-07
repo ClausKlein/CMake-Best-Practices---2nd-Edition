@@ -18,6 +18,13 @@ project(
 )
 include(CTest)
 
+# Add additional targets to your CMake project:
+if(EXISTS Format.cmake)
+    add_subdirectory(Format.cmake)
+    # check-clang-format check-cmake-format check-format clang-format
+    # cmake-format fix-clang-format fix-cmake-format fix-format format
+endif()
+
 # Set the default build type for single-config generators. The build type
 # variable is still overridable from outside.
 set(CMAKE_BUILD_TYPE

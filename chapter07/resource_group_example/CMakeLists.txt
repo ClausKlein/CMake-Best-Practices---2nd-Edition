@@ -41,10 +41,10 @@ set_property(
              4,servers:1,clients:2
 )
 
-# Add a test with the following resource needs
-# 2 cpus, 500Mb of RAM A total of two instances of server resources and 3
-# instances of client resources split into the following groups: 1 group of 1
-# server and 1 client 1 groups of 1 server and 2 clients
+# Add a test with the following resource needs 2 cpus, 500Mb of RAM A total of
+# two instances of server resources and 3 instances of client resources split
+# into the following groups: 1 group of 1 server and 1 client 1 groups of 1
+# server and 2 clients
 add_test(
     NAME resource_test_2
     COMMAND ch7_resource_groups extra_arg
@@ -57,10 +57,10 @@ set_property(
              servers:1,clients:2
 )
 
-# Add a test with the following resource needs
-# 2 cpus, 8096 Mb of RAM A total of two instances of server resources and two
-# instances of client resources split into the following groups: 1 group of 1
-# server and 1 client 1 groups of 1 server and 1 clients
+# Add a test with the following resource needs 2 cpus, 8096 Mb of RAM A total of
+# two instances of server resources and two instances of client resources split
+# into the following groups: 1 group of 1 server and 1 client 1 groups of 1
+# server and 1 clients
 add_test(
     NAME resource_test_3
     COMMAND ch7_resource_groups extra_arg
