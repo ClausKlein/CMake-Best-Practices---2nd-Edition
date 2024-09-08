@@ -19,7 +19,7 @@ project(
 include(CTest)
 
 # Add additional targets to your CMake project:
-if(EXISTS Format.cmake)
+if(EXISTS Format.cmake/CMakeLists.txt)
     add_subdirectory(Format.cmake)
     # check-clang-format check-cmake-format check-format clang-format
     # cmake-format fix-clang-format fix-cmake-format fix-format format
