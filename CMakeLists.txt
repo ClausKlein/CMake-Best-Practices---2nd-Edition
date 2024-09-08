@@ -16,7 +16,19 @@ project(
         "The 'build-all' instructions for all examples for the book CMake Best Practices"
     LANGUAGES CXX
 )
-include(CTest)
+
+# TODO(CK) only needed if working as "Dashboard Client" include(CTest)
+enable_testing()
+
+# cmake-format: off
+# see the CMAKE_SOURCE_DIR like readonly!
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
+    message(
+        FATAL_ERROR
+            "In-source builds are not supported! "
+            "You may need to delete 'CMakeCache.txt' and 'CMakeFiles/' first."
+    )
+endif()
 
 # Add additional targets to your CMake project:
 if(EXISTS Format.cmake/CMakeLists.txt)
@@ -24,6 +36,24 @@ if(EXISTS Format.cmake/CMakeLists.txt)
     # check-clang-format check-cmake-format check-format clang-format
     # cmake-format fix-clang-format fix-cmake-format fix-format format
 endif()
+
+if(PROJECT_IS_TOP_LEVEL)
+    option(BUILD_SHARED_LIBS "Build shared libs." OFF)
+    option(BUILD_TESTING "Build SelfTest project" ON)
+endif()
+
+# This property setting also needs to be consistent between the installed shared
+# library and its consumer, otherwise most toolchains will once again reject the
+# consumer's generated BMI.
+if(NOT DEFINED CMAKE_CXX_STANDARD)
+    set(CMAKE_CXX_STANDARD 20)
+    set(CMAKE_CXX_EXTENSIONS FALSE)
+    set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+
+    set(CMAKE_CXX_VISIBILITY_PRESET hidden)
+    set(CMAKE_VISIBILITY_INLINES_HIDDEN TRUE)
+endif()
+# cmake-format: on
 
 # Set the default build type for single-config generators. The build type
 # variable is still overridable from outside.

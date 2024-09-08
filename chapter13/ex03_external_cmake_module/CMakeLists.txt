@@ -22,6 +22,7 @@ fetchcontent_declare(
     GIT_TAG 7d0447fcadf8e93d25f242b9bb251ecbcf67f8cb
     SOURCE_DIR "${CMAKE_CURRENT_LIST_DIR}/.hadouken"
 )
+# FIXME(CK): see the CMAKE_SOURCE_DIR like readonly!
 
 # Fetch hadouken
 fetchcontent_makeavailable(hadouken)
@@ -30,7 +31,7 @@ fetchcontent_makeavailable(hadouken)
 list(
     APPEND
     CMAKE_MODULE_PATH
-    ${CMAKE_CURRENT_LIST_DIR}/.hadouken/cmake/modules
+    ${hadouken_SOURCE_DIR}/cmake/modules
 )
 
 # Include some CMake modules provided by the Hadouken
