@@ -47,7 +47,7 @@ endif()
 # GIT_REVISION
 configure_file(
     version.h.in
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/version.h
+    ${CMAKE_CURRENT_BINARY_DIR}/version.h
     @ONLY
 )
 
@@ -55,4 +55,9 @@ configure_file(
 add_executable(
     ch8_configure_file_example
     src/main.cpp
+)
+
+target_include_directories(
+    ch8_configure_file_example
+    PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
 )
