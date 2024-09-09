@@ -21,18 +21,9 @@ endif()
 add_executable(ch5_vcpkg_example)
 # set the c++ version required
 
-target_compile_features(
-    ch5_vcpkg_example
-    PRIVATE cxx_std_17
-)
+target_compile_features(ch5_vcpkg_example PRIVATE cxx_std_17)
 # Add source files to 'ch5_vcpkg_example' target
-target_sources(
-    ch5_vcpkg_example
-    PRIVATE src/main.cpp
-)
+target_sources(ch5_vcpkg_example PRIVATE src/main.cpp)
 
 # link the fmt library to the executable
-target_link_libraries(
-    ch5_vcpkg_example
-    PRIVATE rapidjson
-)
+target_link_libraries(ch5_vcpkg_example PRIVATE rapidjson)

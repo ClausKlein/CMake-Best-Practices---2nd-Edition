@@ -19,25 +19,16 @@ add_library(ch11_framework_example SHARED)
 # major number of the version
 set_target_properties(
     ch11_framework_example
-    PROPERTIES FRAMEWORK TRUE
-               FRAMEWORK_VERSION 1
-               PUBLIC_HEADER include/hello.hpp
+    PROPERTIES FRAMEWORK TRUE FRAMEWORK_VERSION 1 PUBLIC_HEADER
+                                                  include/hello.hpp
                PRIVATE_HEADER src/internal.hpp
 )
-target_compile_features(
-    ch11_framework_example
-    PRIVATE cxx_std_17
-)
+target_compile_features(ch11_framework_example PRIVATE cxx_std_17)
 
 # add sources to the library target
-target_sources(
-    ch11_framework_example
-    PRIVATE src/hello.cpp src/internal.cpp
-)
+target_sources(ch11_framework_example PRIVATE src/hello.cpp src/internal.cpp)
 
 # set the include directories
 target_include_directories(
-    ch11_framework_example
-    PRIVATE src/ch11_framework_example
-    PUBLIC include
+    ch11_framework_example PRIVATE src/ch11_framework_example PUBLIC include
 )

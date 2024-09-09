@@ -8,11 +8,9 @@
 
 cmake_minimum_required(VERSION 3.25...3.30)
 
-project(
-    ch12_emulator_example
-    VERSION 1.0
-    DESCRIPTION "A simple C++ project to demonstrate basic CMake usage"
-    LANGUAGES CXX C
+project(ch12_emulator_example VERSION 1.0
+        DESCRIPTION "A simple C++ project to demonstrate basic CMake usage"
+        LANGUAGES CXX C
 )
 
 # enable testing
@@ -20,12 +18,6 @@ include(CTest)
 
 # define an executable target
 add_executable(ch12_emulator_example)
-target_sources(
-    ch12_emulator_example
-    PRIVATE src/main.cpp
-)
+target_sources(ch12_emulator_example PRIVATE src/main.cpp)
 
-add_test(
-    NAME emulator_test
-    COMMAND ch12_emulator_example
-)
+add_test(NAME emulator_test COMMAND ch12_emulator_example)

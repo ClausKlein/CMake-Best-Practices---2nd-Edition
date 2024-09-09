@@ -34,28 +34,14 @@ endif()
 # <project>-config-version.cmake file too. The packages with no
 # -config-version.cmake file are not considered by find_package() when version
 # is specified.
-find_package(
-    ch4_ex05_lib
-    1
-    CONFIG
-    REQUIRED
-)
+find_package(ch4_ex05_lib 1 CONFIG REQUIRED)
 
 # Define the executable that will consume the ch4_ex05_lib package
-add_executable(
-    ch4_ex05_consumer
-    src/main.cpp
-)
+add_executable(ch4_ex05_consumer src/main.cpp)
 
 # Set the required C++ standard for the target
-target_compile_features(
-    ch4_ex05_consumer
-    PRIVATE cxx_std_17
-)
+target_compile_features(ch4_ex05_consumer PRIVATE cxx_std_17)
 
 # Link executable to ch4_ex05_lib package found by find_package() before. Target
 # is under `ch4_ex05_lib::` namespace since export is made using that namespace.
-target_link_libraries(
-    ch4_ex05_consumer
-    PRIVATE ch4_ex05_lib::ch4_ex05_lib
-)
+target_link_libraries(ch4_ex05_consumer PRIVATE ch4_ex05_lib::ch4_ex05_lib)

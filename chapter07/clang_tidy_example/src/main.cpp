@@ -2,8 +2,8 @@
 #include <memory>
 
 struct SomeStruct {
-int x;
-int y;
+  int x;
+  int y;
 };
 
 int main(int, char **) {

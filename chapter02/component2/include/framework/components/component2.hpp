@@ -10,8 +10,7 @@
 
 #include <framework/components/component_interface.hpp>
 
-namespace framework {
-namespace components {
+namespace framework::components {
 
 /**
  * @brief Component 1 interface
@@ -43,5 +42,4 @@ public:
    */
   virtual int do_other_stuff(int param) override;
 }; // class component2
-} // namespace components
-} // namespace framework
+} // namespace framework::components

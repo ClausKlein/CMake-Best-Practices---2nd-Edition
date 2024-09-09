@@ -8,6 +8,4 @@
 
 #include <iostream>
 
-int main(void) {
-    std::cout << "Hello from Chapter 4 executable!" << std::endl;
-}
+int main(void) { std::cout << "Hello from Chapter 4 executable!" << std::endl; }

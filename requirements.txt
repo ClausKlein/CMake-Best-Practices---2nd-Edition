@@ -1,0 +1,21 @@
+# =============================================================================
+# PYTHON PACKAGES (PIP)
+# =============================================================================
+# USE (python3): pip3 install -U -r <THIS_FILE_NAME>
+# =============================================================================
+
+### python tools
+# isort
+# black
+# pylint
+
+### cmake build context
+bumpversion>=0.6.0
+check-jsonschema
+cmake-format>=0.6.13
+cmake>=3.25
+codespell>=2.3.0
+conan>=2.7.0
+gcovr>=7.2
+ninja>=1.11
+yamllint>=1.35

@@ -9,5 +9,6 @@
 #include <cstdio>
 
 int main(void) {
-    std::printf("Version `%s`, author `%s`\n", TEST_PROJECT_VERSION, TEST_PROJECT_AUTHOR);
+  std::printf("Version `%s`, author `%s`\n", TEST_PROJECT_VERSION,
+              TEST_PROJECT_AUTHOR);
 }

@@ -18,28 +18,16 @@ find_package(OpenSSL)
 if(NOT OPENSSL_FOUND)
     message(STATUS "OpenSSL not found, disabling link what you use example")
 
-elseif(
-    CMAKE_CXX_COMPILER_ID
-    STREQUAL
-    "GNU"
-    OR CMAKE_CXX_COMPILER_ID
-       STREQUAL
-       "Clang"
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID STREQUAL
+                                               "Clang"
 )
-    option(
-        ENABLE_LINK_WHAT_YOU_USE
-        "Enable link what you use"
-        ON
-    )
+    option(ENABLE_LINK_WHAT_YOU_USE "Enable link what you use" ON)
     add_executable(ch7_lwyu_example)
-    target_sources(
-        ch7_lwyu_example
-        PRIVATE src/main.cpp
-    )
+    target_sources(ch7_lwyu_example PRIVATE src/main.cpp)
     target_link_libraries(ch7_lwyu_example OpenSSL::SSL)
     set_target_properties(
-        ch7_lwyu_example
-        PROPERTIES LINK_WHAT_YOU_USE ${ENABLE_LINK_WHAT_YOU_USE}
+        ch7_lwyu_example PROPERTIES LINK_WHAT_YOU_USE
+                                    ${ENABLE_LINK_WHAT_YOU_USE}
     )
 else()
     message(

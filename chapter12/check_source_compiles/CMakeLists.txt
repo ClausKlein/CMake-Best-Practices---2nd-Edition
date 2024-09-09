@@ -4,11 +4,9 @@
 
 cmake_minimum_required(VERSION 3.25...3.30)
 
-project(
-    ch12_check_compiler_feature
-    VERSION 1.0
-    DESCRIPTION "A simple C++ project to demonstrate basic CMake usage"
-    LANGUAGES CXX
+project(ch12_check_compiler_feature VERSION 1.0
+        DESCRIPTION "A simple C++ project to demonstrate basic CMake usage"
+        LANGUAGES CXX
 )
 
 # include the module to check if the source compiles

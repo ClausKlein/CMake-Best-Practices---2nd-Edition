@@ -22,11 +22,5 @@ include(superbuild.cmake)
 
 # A simple unit test target
 add_executable(ch10_ex02_tests)
-target_sources(
-    ch10_ex02_tests
-    PRIVATE src/tests.cpp
-)
-target_link_libraries(
-    ch10_ex02_tests
-    PRIVATE catch2
-)
+target_sources(ch10_ex02_tests PRIVATE src/tests.cpp)
+target_link_libraries(ch10_ex02_tests PRIVATE catch2)

@@ -5,8 +5,7 @@
 cmake_minimum_required(VERSION 3.25...3.30)
 
 project(
-    "ch8_execute_process_example"
-    VERSION 1.0
+    "ch8_execute_process_example" VERSION 1.0
     DESCRIPTION "A simple C++ project to demonstrate usage of execute_process"
     LANGUAGES CXX
 )
@@ -27,20 +26,14 @@ endif()
 execute_process(
     COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
     OUTPUT_VARIABLE GIT_REVISION
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-    COMMAND_ERROR_IS_FATAL
-    ANY
+    OUTPUT_STRIP_TRAILING_WHITESPACE COMMAND_ERROR_IS_FATAL ANY
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-add_executable(
-    ch8_execute_process_example
-    src/main.cpp
-)
+add_executable(ch8_execute_process_example src/main.cpp)
 
 # Add a compile definition to the executable target that uses the GIT_REVISION
 # variable retrieved with execute_process
 target_compile_definitions(
-    ch8_execute_process_example
-    PRIVATE VERSION=\"${GIT_REVISION}\"
+    ch8_execute_process_example PRIVATE VERSION=\"${GIT_REVISION}\"
 )

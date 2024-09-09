@@ -13,13 +13,7 @@ project(
 )
 
 # create a list to be used in the custom command
-list(
-    APPEND
-    MYLIST
-    "A"
-    "B"
-    "C"
-)
+list(APPEND MYLIST "A" "B" "C")
 
 # Adds a custom target that prints out a message to stdout. Adding the ALL
 # keyword adds the target to the "all" meta-target COMMAND_EXPAND_LIST causes

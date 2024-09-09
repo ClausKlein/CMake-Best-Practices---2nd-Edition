@@ -8,8 +8,7 @@
 
 #pragma once
 
-namespace chapter4 {
-namespace ex02 {
+namespace chapter4::ex02 {
 /**
  * @brief The 'greeter' class interface
  */
@@ -20,5 +19,4 @@ public:
    */
   void greet();
 }; // class greeter
-} // namespace ex02
-} // namespace chapter4
+} // namespace chapter4::ex02

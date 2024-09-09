@@ -1,18 +1,13 @@
 cmake_minimum_required(VERSION 3.25...3.30)
 
 # Project name and version
-project(
-    ch11_app_bundle_example_custom_plist
-    VERSION 1.0
-    DESCRIPTION "A simple C++ project to demonstrate an apple ui"
-    LANGUAGES CXX
+project(ch11_app_bundle_example_custom_plist VERSION 1.0
+        DESCRIPTION "A simple C++ project to demonstrate an apple ui"
+        LANGUAGES CXX
 )
 
 # Add the executable
-add_executable(
-    ch11_app_bundle_example_custom_plist MACOSX_BUNDLE
-    src/main.mm
-)
+add_executable(ch11_app_bundle_example_custom_plist MACOSX_BUNDLE src/main.mm)
 set_target_properties(
     ch11_app_bundle_example_custom_plist
     PROPERTIES MACOSX_BUNDLE_INFO_PLIST

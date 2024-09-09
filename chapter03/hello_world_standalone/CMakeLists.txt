@@ -15,7 +15,4 @@ project(
 # Create a target to build an executable
 add_executable(ch3_hello_world)
 # Add source files to 'hello_world' target
-target_sources(
-    ch3_hello_world
-    PRIVATE src/main.cpp
-)
+target_sources(ch3_hello_world PRIVATE src/main.cpp)

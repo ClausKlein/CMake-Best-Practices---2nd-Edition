@@ -1,5 +1,5 @@
-#pragma once 
+#pragma once
 
 #include <iostream>
 
-void hello() { std::cout << "Greetings\n";}
+void hello() { std::cout << "Greetings\n"; }

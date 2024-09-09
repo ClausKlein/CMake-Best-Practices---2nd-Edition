@@ -5,19 +5,15 @@
 
 cmake_minimum_required(VERSION 3.25...3.30)
 
-project(
-    ch4_ex05_lib
-    VERSION 1.0.1
-    DESCRIPTION "Chapter 4 Example 05, Config-file package"
-    LANGUAGES CXX
+project(ch4_ex05_lib VERSION 1.0.1
+        DESCRIPTION "Chapter 4 Example 05, Config-file package" LANGUAGES CXX
 )
 
 include(GNUInstallDirs) # Defines the ${CMAKE_INSTALL_INCLUDEDIR} variable.
 
 # This is the default install directory for config-file package cmake files It
 # is relative to install prefix.
-set(ch4_ex05_lib_INSTALL_CMAKEDIR
-    cmake
+set(ch4_ex05_lib_INSTALL_CMAKEDIR cmake
     CACHE PATH "Installation directory for config-file package cmake files"
 )
 
@@ -47,10 +43,7 @@ target_sources(
 # Request compile features for target named `ch4_ex05_lib`. Requested
 # `cxx_std_17` feature determines the minimum C++ standard required to build
 # this target. It's PRIVATE, since it is a build-time requirement only.
-target_compile_features(
-    ch4_ex05_lib
-    PUBLIC cxx_std_17
-)
+target_compile_features(ch4_ex05_lib PUBLIC cxx_std_17)
 
 # Until now, it is just regular target definition ... interesting stuff begins
 # after this line
@@ -77,11 +70,8 @@ install(
 # ch4_05_lib:: while doing so (NAMESPACE). DESTINATION argument recommended to
 # be a path that will be picked by find_package() by default ('cmake' in our
 # example).
-install(
-    EXPORT ch4_ex05_lib_export
-    FILE ch4_ex05_lib-config.cmake
-    NAMESPACE ch4_ex05_lib::
-    DESTINATION ${ch4_ex05_lib_INSTALL_CMAKEDIR}
+install(EXPORT ch4_ex05_lib_export FILE ch4_ex05_lib-config.cmake
+        NAMESPACE ch4_ex05_lib:: DESTINATION ${ch4_ex05_lib_INSTALL_CMAKEDIR}
 )
 
 # Defines write_basic_package_version_file
@@ -102,9 +92,8 @@ write_basic_package_version_file(
 # Install command for deploying Config-file package files into the target
 # system. It must be present in the same directory as
 # `ch4_ex05_lib-config.cmake` file.
-install(
-    FILES "${CMAKE_CURRENT_BINARY_DIR}/ch4_ex05_lib-config-version.cmake"
-    DESTINATION "${ch4_ex05_lib_INSTALL_CMAKEDIR}"
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/ch4_ex05_lib-config-version.cmake"
+        DESTINATION "${ch4_ex05_lib_INSTALL_CMAKEDIR}"
 )
 
 # See ex05_consumer for an example of how to consume the package created here.

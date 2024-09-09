@@ -1,36 +1,22 @@
 # Copyied from https://github.com/friendlyanon/cmake-init-clang-on-windows
 cmake_minimum_required(VERSION 3.25...3.30)
 
-set(CMAKE_C_COMPILER
-    clang
-)
-set(CMAKE_CXX_COMPILER
-    clang++
-)
+set(CMAKE_C_COMPILER clang)
+set(CMAKE_CXX_COMPILER clang++)
 
 # Tell Clang the triplet to target
-set(CMAKE_C_COMPILER_TARGET
-    x86_64-pc-windows
-)
-set(CMAKE_CXX_COMPILER_TARGET
-    x86_64-pc-windows
-)
+set(CMAKE_C_COMPILER_TARGET x86_64-pc-windows)
+set(CMAKE_CXX_COMPILER_TARGET x86_64-pc-windows)
 
 # https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md#workloads-components-and-extensions
-set(windows_kit_version
-    10.0.21381.0
-)
+set(windows_kit_version 10.0.21381.0)
 
 # https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md#microsoft-visual-c
-set(msvc_version
-    14.29.30135
-)
+set(msvc_version 14.29.30135)
 
 # You have to find it out on your own by running cl.exe, windows-2019 has this
 # one
-set(cl_version
-    19.29.30137
-)
+set(cl_version 19.29.30137)
 
 # Clang needs to use MSVC's system .lib files
 add_link_options(
