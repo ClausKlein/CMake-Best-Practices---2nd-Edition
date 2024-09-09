@@ -13,16 +13,11 @@ project(
 
 # Create an executable target
 add_executable(ch14_unity_build)
-target_compile_features(
-    ch14_unity_build
-    PRIVATE cxx_std_17
-)
+target_compile_features(ch14_unity_build PRIVATE cxx_std_17)
 
 target_sources(
     ch14_unity_build
-    PRIVATE src/main.cpp
-            src/fibonacci.cpp
-            src/eratosthenes.cpp
+    PRIVATE src/main.cpp src/fibonacci.cpp src/eratosthenes.cpp
 )
 # Enable unity build for the target, by default BATCH mode is used
 set_target_properties(
@@ -32,6 +27,5 @@ set_target_properties(
 
 # exclude eratosthenes.cpp from the unity build
 set_source_files_properties(
-    src/eratosthenes.cpp
-    PROPERTIES SKIP_UNITY_BUILD_INCLUSION YES
+    src/eratosthenes.cpp PROPERTIES SKIP_UNITY_BUILD_INCLUSION YES
 )

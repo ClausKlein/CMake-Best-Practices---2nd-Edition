@@ -15,20 +15,13 @@ project(
 add_subdirectory(simple_executable)
 add_subdirectory(policy_example)
 
-option(
-    CHAPTER1_PRINT_LANGUAGE_EXAMPLES
-    "Print examples for each language"
-    OFF
-)
+option(CHAPTER1_PRINT_LANGUAGE_EXAMPLES "Print examples for each language" OFF)
 include(CMakeDependentOption)
 # create an option CHAPTER1_PRINT_HELLO_WORLD that is only visible of
 # CHAPTER1_PRINT_LANGUAGE_EXAMPLES is set to ON
 cmake_dependent_option(
-    CHAPTER1_PRINT_HELLO_WORLD
-    "Print a nice greeting from chapter1"
-    ON
-    CHAPTER1_PRINT_LANGUAGE_EXAMPLES
-    ON
+    CHAPTER1_PRINT_HELLO_WORLD "Print a nice greeting from chapter1" ON
+    CHAPTER1_PRINT_LANGUAGE_EXAMPLES ON
 )
 mark_as_advanced(CHAPTER1_PRINT_LANGUAGE_EXAMPLES)
 
@@ -37,90 +30,44 @@ if(CHAPTER1_PRINT_LANGUAGE_EXAMPLES)
         message(STATUS "Chapter1: welcome to chapter 1!")
     endif()
     # examples for list operations
-    set(MYLIST
-        abc
-        def
-        ghi
-    )
+    set(MYLIST abc def ghi)
     message(STATUS "Chapter1: MYLIST is: ${MYLIST}")
-    set(MYLIST
-        "abc;def;ghi"
-    )
+    set(MYLIST "abc;def;ghi")
     message(STATUS "Chapter1: MYLIST is: ${MYLIST}")
-    list(
-        APPEND
-        MYLIST
-        "xyz"
-    )
+    list(APPEND MYLIST "xyz")
     message(STATUS "Chapter1: MYLIST is: ${MYLIST}")
 
     # find the string abc in MYLIST and store it in ABC_INDEX
-    list(
-        FIND
-        MYLIST
-        abc
-        ABC_INDEX
-    )
-    list(
-        GET
-        MYLIST
-        ${ABC_INDEX}
-        ABC
-    )
+    list(FIND MYLIST abc ABC_INDEX)
+    list(GET MYLIST ${ABC_INDEX} ABC)
     message(
         STATUS
             "Chapter1: Index of 'def' in MYLIST is ${ABC_INDEX} the value at the index is '${ABC}'"
     )
 
     # add MYVAR as cache variable with the value foo
-    set(ch1_MYVAR
-        foo
-        CACHE STRING "Variable foo that configures bar"
-    )
+    set(ch1_MYVAR foo CACHE STRING "Variable foo that configures bar")
 
     # set a property for this directory
-    set_property(
-        DIRECTORY
-        PROPERTY CHAPTER1_PROPERTY "Hello from chapter 1"
-    )
-    get_property(
-        CH1_PROPERTY_VARIABLE
-        DIRECTORY
-        PROPERTY CHAPTER1_PROPERTY
-    )
+    set_property(DIRECTORY PROPERTY CHAPTER1_PROPERTY "Hello from chapter 1")
+    get_property(CH1_PROPERTY_VARIABLE DIRECTORY PROPERTY CHAPTER1_PROPERTY)
     message(
         STATUS
             "Chapter1: Property value for CHAPTER1_PROPERTy is '${CH1_PROPERTY_VARIABLE}'"
     )
 
     # loop examples
-    set(MYVAR
-        0
-    )
-    while(
-        MYVAR
-        LESS
-        "5"
-    )
+    set(MYVAR 0)
+    while(MYVAR LESS "5")
         message(STATUS "Chapter1: MYVAR is '${MYVAR}'")
-        math(
-            EXPR
-            MYVAR
-            "${MYVAR}+1"
-        )
+        math(EXPR MYVAR "${MYVAR}+1")
     endwhile()
 
-    foreach(
-        ITEM IN
-        LISTS MYLIST
-    )
+    foreach(ITEM IN LISTS MYLIST)
         message(STATUS "Chapter1: ITEM from MYLIST is '${ITEM}'")
     endforeach()
 
-    foreach(
-        ITEM
-        RANGE 0 5
-    )
+    foreach(ITEM RANGE 0 5)
         message(STATUS "Chapter1: ITEM from RANGE is '${ITEM}'")
     endforeach()
 

@@ -31,7 +31,5 @@ target_sources(
 # libraries are described in the subdirectories
 target_link_libraries(
     chapter3
-    PRIVATE ch3_hello_header_only
-            ch3_hello_shared
-            ch3_hello_object
+    PRIVATE ch3_hello_header_only ch3_hello_shared ch3_hello_object
 )

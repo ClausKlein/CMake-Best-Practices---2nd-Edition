@@ -21,11 +21,7 @@ fetchcontent_declare(
 )
 
 fetchcontent_makeavailable(Catch2)
-list(
-    APPEND
-    CMAKE_MODULE_PATH
-    ${Catch2_SOURCE_DIR}/contrib/
-)
+list(APPEND CMAKE_MODULE_PATH ${Catch2_SOURCE_DIR}/contrib/)
 include(CTest)
 include(Catch)
 

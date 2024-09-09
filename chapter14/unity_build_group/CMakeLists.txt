@@ -15,32 +15,23 @@ add_executable(ch14_unity_build_group)
 
 target_sources(
     ch14_unity_build_group
-    PRIVATE src/main.cpp
-            src/fibonacci.cpp
-            src/eratosthenes.cpp
-            src/pythagoras.cpp
+    PRIVATE src/main.cpp src/fibonacci.cpp src/eratosthenes.cpp src/pythagoras.cpp
 )
-target_compile_features(
-    ch14_unity_build_group
-    PRIVATE cxx_std_17
-)
+target_compile_features(ch14_unity_build_group PRIVATE cxx_std_17)
 
-# Enable unity build for the target by default BATCH mode is used for unity
-# builds, so the build mode is changed to GROUP
+# Enable unity build for the target by default BATCH mode is used for unity builds,
+# so the build mode is changed to GROUP
 set_target_properties(
     ch14_unity_build_group
-    PROPERTIES UNITY_BUILD True
-               UNITY_BUILD_MODE GROUP
+    PROPERTIES UNITY_BUILD True UNITY_BUILD_MODE GROUP
 )
 
 # Add main.cpp and fibonacci.cpp to the unuty group1
 set_source_files_properties(
-    src/main.cpp src/fibonacci.cpp
-    PROPERTIES UNITY_GROUP group1
+    src/main.cpp src/fibonacci.cpp PROPERTIES UNITY_GROUP group1
 )
 
 # add erathostenes.cpp and pythagoras.cpp to group2
 set_source_files_properties(
-    src/erathostenes.cpp src/pythagoras.cpp
-    PROPERTIES UNITY_GROUP group2
+    src/erathostenes.cpp src/pythagoras.cpp PROPERTIES UNITY_GROUP group2
 )

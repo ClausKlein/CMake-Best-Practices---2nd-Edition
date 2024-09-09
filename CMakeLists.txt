@@ -55,22 +55,16 @@ if(NOT DEFINED CMAKE_CXX_STANDARD)
 endif()
 # cmake-format: on
 
-# Set the default build type for single-config generators. The build type
-# variable is still overridable from outside.
-set(CMAKE_BUILD_TYPE
-    "Debug"
-    CACHE STRING "Default build type for single-config generators"
+# Set the default build type for single-config generators. The build type variable is
+# still overridable from outside.
+set(CMAKE_BUILD_TYPE "Debug" CACHE STRING
+                                   "Default build type for single-config generators"
 )
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS
-    TRUE
-)
+set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 
 # Print generator type and build type (if applicable)
-get_property(
-    is_multi_config_generator GLOBAL
-    PROPERTY GENERATOR_IS_MULTI_CONFIG
-)
+get_property(is_multi_config_generator GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG)
 if(NOT is_multi_config_generator)
     message(STATUS "Using a single-config generator (${CMAKE_GENERATOR})")
     message(STATUS "Current build type is `${CMAKE_BUILD_TYPE}`")
@@ -80,12 +74,8 @@ endif()
 
 find_program(CCACHE_PROGRAM ccache)
 if(CCACHE_PROGRAM)
-    set(CMAKE_C_COMPILER_LAUNCHER
-        ${CCACHE_PROGRAM}
-    )
-    set(CMAKE_CXX_COMPILER_LAUNCHER
-        ${CCACHE_PROGRAM}
-    )
+    set(CMAKE_C_COMPILER_LAUNCHER ${CCACHE_PROGRAM})
+    set(CMAKE_CXX_COMPILER_LAUNCHER ${CCACHE_PROGRAM})
 endif()
 
 # Add chapter examples to root project

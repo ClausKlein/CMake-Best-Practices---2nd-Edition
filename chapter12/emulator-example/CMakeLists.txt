@@ -25,7 +25,4 @@ target_sources(
     PRIVATE src/main.cpp
 )
 
-add_test(
-    NAME emulator_test
-    COMMAND ch12_emulator_example
-)
+add_test(NAME emulator_test COMMAND ch12_emulator_example)

@@ -12,10 +12,10 @@ project(
     LANGUAGES CXX
 )
 
-# create a custom target that uses cmake in script mode to create a sha256 hash
-# of the output file created by another target using the $<TARGET_FILE:
-# generator expression implcitely adds the dependency between the targets. the
-# ALL keyword adds the custom target to the ALL meta-target
+# create a custom target that uses cmake in script mode to create a sha256 hash of
+# the output file created by another target using the $<TARGET_FILE: generator
+# expression implcitely adds the dependency between the targets. the ALL keyword adds
+# the custom target to the ALL meta-target
 add_custom_target(
     ch8_create_hash # XXX ALL
     COMMAND
@@ -27,7 +27,4 @@ add_custom_target(
         "Creating sha256 hash using a custom target $<TARGET_FILE:ch8_generate_hash_using_a_target>"
 )
 
-add_executable(
-    ch8_generate_hash_using_a_target
-    src/main.cpp
-)
+add_executable(ch8_generate_hash_using_a_target src/main.cpp)

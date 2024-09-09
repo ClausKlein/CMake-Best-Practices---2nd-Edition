@@ -9,27 +9,19 @@ project(
 )
 
 # set some global XCode properties
-set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY
-    "Apple Development"
-    CACHE STRING ""
-)
-set(CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM
-    "CMake Best Practice Authors"
-    CACHE STRING ""
+set(CMAKE_XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "Apple Development" CACHE STRING "")
+set(CMAKE_XCODE_ATTRIBUTE_DEVELOPMENT_TEAM "CMake Best Practice Authors" CACHE STRING
+                                                                               ""
 )
 
 # Add the executable
-add_executable(
-    ch11_hello_world_apple
-    src/main.mm
-)
+add_executable(ch11_hello_world_apple src/main.mm)
 
 # Link the Cocoa framework
-target_link_libraries(ch11_hello_world_apple "-framework Cocoa")
-target_compile_features(
-    ch11_hello_world_apple
-    PRIVATE cxx_std_17
+target_link_libraries(
+    ch11_hello_world_apple "-framework Cocoa"
 )
+target_compile_features(ch11_hello_world_apple PRIVATE cxx_std_17)
 
 # set target properties for macOS
 set_target_properties(

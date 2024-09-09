@@ -19,16 +19,10 @@ target_sources(
 )
 
 # Since this test contains a memory use after free to illustrate the use of the
-# address sanitizer it is not stable and only enabled if the address sanitizer
-# is enabled to show how it is working
+# address sanitizer it is not stable and only enabled if the address sanitizer is
+# enabled to show how it is working
 if(ENABLE_ADDRESS_SANITIZER_TEST)
-    add_test(
-        NAME sanitizer_test
-        COMMAND ch7_simple_sanitizer
-    )
+    add_test(NAME sanitizer_test COMMAND ch7_simple_sanitizer)
     # The test will fail because of address sanitizer violations
-    set_tests_properties(
-        sanitizer_test
-        PROPERTIES WILL_FAIL True
-    )
+    set_tests_properties(sanitizer_test PROPERTIES WILL_FAIL True)
 endif()

@@ -15,19 +15,14 @@ project(
 add_library(ch11_framework_example SHARED)
 
 # set properties for the target. VERSION set the library version to the project
-# version * SOVERSION set the compatibility  version for the library to the
-# major number of the version
+# version * SOVERSION set the compatibility  version for the library to the major
+# number of the version
 set_target_properties(
     ch11_framework_example
-    PROPERTIES FRAMEWORK TRUE
-               FRAMEWORK_VERSION 1
-               PUBLIC_HEADER include/hello.hpp
+    PROPERTIES FRAMEWORK TRUE FRAMEWORK_VERSION 1 PUBLIC_HEADER include/hello.hpp
                PRIVATE_HEADER src/internal.hpp
 )
-target_compile_features(
-    ch11_framework_example
-    PRIVATE cxx_std_17
-)
+target_compile_features(ch11_framework_example PRIVATE cxx_std_17)
 
 # add sources to the library target
 target_sources(

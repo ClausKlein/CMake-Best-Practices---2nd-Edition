@@ -9,14 +9,10 @@ project(
 )
 
 # Add the executable
-add_executable(
-    ch11_app_bundle_example MACOSX_BUNDLE
-    src/main.mm
-)
+add_executable(ch11_app_bundle_example MACOSX_BUNDLE src/main.mm)
 
 # Link the Cocoa framework
-target_link_libraries(ch11_app_bundle_example "-framework Cocoa")
-target_compile_features(
-    ch11_app_bundle_example
-    PRIVATE cxx_std_17
+target_link_libraries(
+    ch11_app_bundle_example "-framework Cocoa"
 )
+target_compile_features(ch11_app_bundle_example PRIVATE cxx_std_17)

@@ -17,18 +17,9 @@ target_sources(
     ch7_test_timeout_example
     PRIVATE src/main.cpp
 )
-target_compile_features(
-    ch7_test_timeout_example
-    PRIVATE cxx_std_17
-)
+target_compile_features(ch7_test_timeout_example PRIVATE cxx_std_17)
 
 # Mark the test timeout_test with a timeout of 10 seconds if the test does not
 # complete by then, it is killed and marked as failing
-add_test(
-    NAME timeout_test
-    COMMAND ch7_test_timeout_example
-)
-set_tests_properties(
-    timeout_test
-    PROPERTIES TIMEOUT 10
-)
+add_test(NAME timeout_test COMMAND ch7_test_timeout_example)
+set_tests_properties(timeout_test PROPERTIES TIMEOUT 10)

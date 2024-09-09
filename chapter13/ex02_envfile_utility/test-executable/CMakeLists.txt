@@ -25,10 +25,7 @@ target_sources(
 # Request compile features for target named `ch13_ex02_envfile_utility_test`.
 # Requested `cxx_std_17` feature determines the minimum C++ standard required to
 # build this target. It's PRIVATE, since it is a build-time requirement only.
-target_compile_features(
-    ch13_ex02_envfile_utility_test
-    PRIVATE cxx_std_17
-)
+target_compile_features(ch13_ex02_envfile_utility_test PRIVATE cxx_std_17)
 
 # Expose PROJECT_VERSION and PROJECT_AUTHOR variables as macro definitions
 target_compile_definitions(

@@ -18,40 +18,22 @@ project(
 if(CH10_EX03_USE_SUPERBUILD)
     include(superbuild.cmake)
 else()
-    set(CMAKE_AUTOMOC
-        ON
-    )
-    set(CMAKE_AUTORCC
-        ON
-    )
-    set(CMAKE_AUTOUIC
-        ON
-    )
-    # User decided to not to use superbuild. We have to discover the
-    # dependencies from the current environment as usual. We need `Core` and
-    # Widgets QT components for our simple QT app.
-    find_package(
-        Qt6
-        COMPONENTS Core Widgets
-        REQUIRED
-    )
+    set(CMAKE_AUTOMOC ON)
+    set(CMAKE_AUTORCC ON)
+    set(CMAKE_AUTOUIC ON)
+    # User decided to not to use superbuild. We have to discover the dependencies
+    # from the current environment as usual. We need `Core` and Widgets QT components
+    # for our simple QT app.
+    find_package(Qt6 COMPONENTS Core Widgets REQUIRED)
 endif()
 
 # Define the executable target
-add_executable(
-    ch10_ex03_simple_qt_app
-    main.cpp
-)
+add_executable(ch10_ex03_simple_qt_app main.cpp)
 
 # Set C++ standard for the executable
-target_compile_features(
-    ch10_ex03_simple_qt_app
-    PRIVATE cxx_std_17
-)
+target_compile_features(ch10_ex03_simple_qt_app PRIVATE cxx_std_17)
 
 # Link QT components to the executable
 target_link_libraries(
-    ch10_ex03_simple_qt_app
-    Qt6::Core
-    Qt6::Widgets
+    ch10_ex03_simple_qt_app Qt6::Core Qt6::Widgets
 )

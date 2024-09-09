@@ -22,26 +22,18 @@ endif()
 add_subdirectory(executable)
 add_subdirectory(library)
 
-# We will not explicitly specify project name and version here and let CPack to
-# get project name and version from the project()
-set(CPACK_PACKAGE_VENDOR
-    "CBP Authors"
-)
+# We will not explicitly specify project name and version here and let CPack to get
+# project name and version from the project()
+set(CPACK_PACKAGE_VENDOR "CBP Authors")
 
 # Enable DEB, RPM and TBZ2 generators by default
-set(CPACK_GENERATOR
-    "DEB;TBZ2;TGZ;STGZ"
-)
+set(CPACK_GENERATOR "DEB;TBZ2;TGZ;STGZ")
 
 # Use all available cores when parallelism is supported
-set(CPACK_THREADS
-    0
-)
+set(CPACK_THREADS 0)
 
 # The DEB generator requires CPACK_DEBIAN_PACKAGE_MAINTAINER value to be set.
-set(CPACK_DEBIAN_PACKAGE_MAINTAINER
-    "CBP Authors"
-)
+set(CPACK_DEBIAN_PACKAGE_MAINTAINER "CBP Authors")
 
 # Enable packaging support for the project
 include(CPack)

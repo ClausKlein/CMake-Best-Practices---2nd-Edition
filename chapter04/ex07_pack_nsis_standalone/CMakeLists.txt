@@ -25,13 +25,8 @@ add_subdirectory(library)
 if(WIN32)
     # if it is a debug build, we want to install debug libraries with the
     # InstallRequiredSystemLibraries module
-    if(CMAKE_BUILD_TYPE
-       STREQUAL
-       "Debug"
-    )
-        set(CMAKE_INSTALL_DEBUG_LIBRARIES
-            TRUE
-        )
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+        set(CMAKE_INSTALL_DEBUG_LIBRARIES TRUE)
     endif()
     # this includes compiler provided runtime libraries on windows
     include(InstallRequiredSystemLibraries)
@@ -48,19 +43,13 @@ install(
             ".*system32/.*\\.dll"
 )
 
-# We will not explicitly specify project name and version here and let CPack to
-# get project name and version from the project()
-set(CPACK_PACKAGE_VENDOR
-    "CBP Authors"
-)
+# We will not explicitly specify project name and version here and let CPack to get
+# project name and version from the project()
+set(CPACK_PACKAGE_VENDOR "CBP Authors")
 # Enable NSIS and TBZ2 generators by default
-set(CPACK_GENERATOR
-    "NSIS;TBZ2"
-)
+set(CPACK_GENERATOR "NSIS;TBZ2")
 # Use all available cores when parallelism is supported
-set(CPACK_THREADS
-    0
-)
-# The DEB generator requires CPACK_DEBIAN_PACKAGE_MAINTAINER value to be set.
-# Enable packaging support for the project
+set(CPACK_THREADS 0)
+# The DEB generator requires CPACK_DEBIAN_PACKAGE_MAINTAINER value to be set. Enable
+# packaging support for the project
 include(CPack)

@@ -14,20 +14,13 @@ project(
 
 # add the library target
 add_library(ch3_hello)
-add_library(
-    ch3_hello::ch3_hello
-    ALIAS
-    ch3_hello
-)
+add_library(ch3_hello::ch3_hello ALIAS ch3_hello)
 
 target_sources(
     ch3_hello
     PRIVATE src/hello.cpp
 )
-target_compile_features(
-    ch3_hello
-    PUBLIC cxx_std_17
-)
+target_compile_features(ch3_hello PUBLIC cxx_std_17)
 
 # set the include directories
 target_include_directories(

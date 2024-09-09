@@ -15,20 +15,19 @@ project(
 # add the library target
 add_library(ch3_hello_static STATIC)
 
-# Set the output of the target to `hello` so it will be saved as hello.dll on
-# windows and libhello.a on linux
+# Set the output of the target to `hello` so it will be saved as hello.dll on windows
+# and libhello.a on linux
 set_target_properties(
     ch3_hello_static
     PROPERTIES OUTPUT_NAME hello
 )
 
 # set properties for the target. VERSION set the library version to the project
-# version * SOVERSION set the compatibility  version for the library to the
-# major number of the version
+# version * SOVERSION set the compatibility  version for the library to the major
+# number of the version
 set_target_properties(
     ch3_hello_static
-    PROPERTIES VERSION ${PROJECT_VERSION}
-               SOVERSION ${PROJECT_VERSION_MAJOR}
+    PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR}
 )
 
 # add sources to the library target
@@ -39,10 +38,7 @@ target_sources(
 
 # define the C++ standard needed to compile this library and make it visible to
 # dependers
-target_compile_features(
-    ch3_hello_static
-    PUBLIC cxx_std_17
-)
+target_compile_features(ch3_hello_static PUBLIC cxx_std_17)
 
 # set the include directories
 target_include_directories(

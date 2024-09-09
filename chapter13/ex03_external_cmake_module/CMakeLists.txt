@@ -8,8 +8,7 @@ cmake_minimum_required(VERSION 3.25...3.30)
 project(
     ch13_ex03_external_cmake_module
     VERSION 1.0
-    DESCRIPTION
-        "Chapter 13 Example 03, external CMake modules (hadouken) example"
+    DESCRIPTION "Chapter 13 Example 03, external CMake modules (hadouken) example"
     LANGUAGES CXX
 )
 
@@ -28,11 +27,7 @@ fetchcontent_declare(
 fetchcontent_makeavailable(hadouken)
 
 # Add hadouken module directory to CMake module path
-list(
-    APPEND
-    CMAKE_MODULE_PATH
-    ${hadouken_SOURCE_DIR}/cmake/modules
-)
+list(APPEND CMAKE_MODULE_PATH ${hadouken_SOURCE_DIR}/cmake/modules)
 
 # Include some CMake modules provided by the Hadouken
 include(misc/Log)

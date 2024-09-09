@@ -9,15 +9,13 @@ project(
 )
 
 # Add the executable
-add_executable(
-    ch11_app_bundle_example_custom_plist MACOSX_BUNDLE
-    src/main.mm
-)
+add_executable(ch11_app_bundle_example_custom_plist MACOSX_BUNDLE src/main.mm)
 set_target_properties(
     ch11_app_bundle_example_custom_plist
-    PROPERTIES MACOSX_BUNDLE_INFO_PLIST
-               "${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in"
+    PROPERTIES MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in"
 )
 
 # Link the Cocoa framework
-target_link_libraries(ch11_app_bundle_example_custom_plist "-framework Cocoa")
+target_link_libraries(
+    ch11_app_bundle_example_custom_plist "-framework Cocoa"
+)

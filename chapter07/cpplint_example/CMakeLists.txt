@@ -7,35 +7,21 @@ cmake_minimum_required(VERSION 3.25...3.30)
 project(
     "ch7_cpplint_example"
     VERSION 1.0
-    DESCRIPTION
-        "A simple C++ project to demonstrate using cppcheck on an executable"
+    DESCRIPTION "A simple C++ project to demonstrate using cppcheck on an executable"
     LANGUAGES CXX
 )
 
-find_program(
-    CPPLINT_EXECUTABLE
-    NAMES cppcheck
-)
+find_program(CPPLINT_EXECUTABLE NAMES cppcheck)
 
 if(CPPLINT_EXECUTABLE)
-    option(
-        ENABLE_CPPLINT
-        "Enable cppcheck"
-        ON
-    )
+    option(ENABLE_CPPLINT "Enable cppcheck" ON)
     message(STATUS "CPPlint enabled")
 endif()
 
-set(CPPLINT_COMMAND
-    ""
-)
+set(CPPLINT_COMMAND "")
 
 if(ENABLE_CPPLINT)
-    list(
-        APPEND
-        CPPLINT_COMMAND
-        "${CPPLINT_EXECUTABLE}"
-    )
+    list(APPEND CPPLINT_COMMAND "${CPPLINT_EXECUTABLE}")
 endif()
 
 add_executable(ch7_cpplint_example)

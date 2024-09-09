@@ -23,10 +23,7 @@ target_sources(
 
 # define the C++ standard needed to compile this library and make it visible to
 # dependers
-target_compile_features(
-    ch3_hello_object
-    PUBLIC cxx_std_17
-)
+target_compile_features(ch3_hello_object PUBLIC cxx_std_17)
 
 # set the include directories
 target_include_directories(

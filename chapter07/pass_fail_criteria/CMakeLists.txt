@@ -18,17 +18,11 @@ target_sources(
 )
 
 # Define a test and define that instead of the return value the output of stdout
-# should be parsed to determine if the test passes or fails if the output
-# contains either 'Success' or 'success' then the test passes if the output
-# contains "Warning", "warning", "error" or "Error" then the test fails
-add_test(
-    NAME pass_fail_test
-    COMMAND ch7_pass_fail_criteria ARG1
-)
+# should be parsed to determine if the test passes or fails if the output contains
+# either 'Success' or 'success' then the test passes if the output contains
+# "Warning", "warning", "error" or "Error" then the test fails
+add_test(NAME pass_fail_test COMMAND ch7_pass_fail_criteria ARG1)
 set_tests_properties(
-    pass_fail_test
-    PROPERTIES FAIL_REGULAR_EXPRESSION
-               "[W|w]arning|[E|e]rror"
-               PASS_REGULAR_EXPRESSION
-               "[S|s]uccess"
+    pass_fail_test PROPERTIES FAIL_REGULAR_EXPRESSION "[W|w]arning|[E|e]rror"
+                              PASS_REGULAR_EXPRESSION "[S|s]uccess"
 )

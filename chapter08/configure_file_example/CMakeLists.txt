@@ -23,39 +23,24 @@ if(NOT Git_FOUND)
 endif()
 
 # Make writing the version optional
-option(
-    GIT_VERSION_ENABLE
-    "Define the git version in a header file"
-    ON
-)
+option(GIT_VERSION_ENABLE "Define the git version in a header file" ON)
 
 if(GIT_VERSION_ENABLE)
     # execute a git command at configuration time and store the results in the
-    # GIT_REVISION variable strip any trailing whitespaces and threat any
-    # non-zero return value as fatal error
+    # GIT_REVISION variable strip any trailing whitespaces and threat any non-zero
+    # return value as fatal error
     execute_process(
-        COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD
-        OUTPUT_VARIABLE GIT_REVISION
-        OUTPUT_STRIP_TRAILING_WHITESPACE
-        COMMAND_ERROR_IS_FATAL
-        ANY
+        COMMAND ${GIT_EXECUTABLE} rev-parse --short HEAD OUTPUT_VARIABLE GIT_REVISION
+        OUTPUT_STRIP_TRAILING_WHITESPACE COMMAND_ERROR_IS_FATAL ANY
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     )
 endif()
 
-# replace the placeholder in the version.h.in file with the variable
-# GIT_REVISION
-configure_file(
-    version.h.in
-    ${CMAKE_CURRENT_BINARY_DIR}/version.h
-    @ONLY
-)
+# replace the placeholder in the version.h.in file with the variable GIT_REVISION
+configure_file(version.h.in ${CMAKE_CURRENT_BINARY_DIR}/version.h @ONLY)
 
 # create an executable target that uses the generated file
-add_executable(
-    ch8_configure_file_example
-    src/main.cpp
-)
+add_executable(ch8_configure_file_example src/main.cpp)
 
 target_include_directories(
     ch8_configure_file_example

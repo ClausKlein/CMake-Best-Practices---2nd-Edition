@@ -21,14 +21,8 @@ target_sources(
 )
 
 # Add a test called example_test which executes the command `ch7_simple_test`
-add_test(
-    NAME example_test
-    COMMAND ch7_simple_test
-)
+add_test(NAME example_test COMMAND ch7_simple_test)
 
-# Add a test called example_test_2 which executes the command `ch7_simple_test`
-# with the argument `arg1`
-add_test(
-    NAME example_test_2
-    COMMAND ch7_simple_test arg1
-)
+# Add a test called example_test_2 which executes the command `ch7_simple_test` with
+# the argument `arg1`
+add_test(NAME example_test_2 COMMAND ch7_simple_test arg1)

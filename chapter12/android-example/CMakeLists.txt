@@ -7,8 +7,7 @@ cmake_minimum_required(VERSION 3.25...3.30)
 project(
     androidlib
     VERSION 1.0.0
-    DESCRIPTION
-        "A simple C++ project to demonstrate creating binaries for android"
+    DESCRIPTION "A simple C++ project to demonstrate creating binaries for android"
     LANGUAGES CXX
 )
 
@@ -16,12 +15,11 @@ project(
 add_library(androidlib)
 
 # set properties for the target. VERSION set the library version to the project
-# version * SOVERSION set the compatibility  version for the library to the
-# major number of the version
+# version * SOVERSION set the compatibility  version for the library to the major
+# number of the version
 set_target_properties(
     androidlib
-    PROPERTIES VERSION ${PROJECT_VERSION}
-               SOVERSION ${PROJECT_VERSION_MAJOR}
+    PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION ${PROJECT_VERSION_MAJOR}
 )
 
 # add sources to the library target
@@ -32,10 +30,7 @@ target_sources(
 
 # define the C++ standard needed to compile this library and make it visible to
 # dependers
-target_compile_features(
-    androidlib
-    PUBLIC cxx_std_17
-)
+target_compile_features(androidlib PUBLIC cxx_std_17)
 
 # set the include directories
 target_include_directories(

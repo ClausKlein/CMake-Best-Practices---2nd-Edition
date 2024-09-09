@@ -12,27 +12,15 @@ project(
     LANGUAGES CXX
 )
 
-option(
-    CH10_EX01_USE_SUPERBUILD
-    "Enable superbuild for chapter 10, example 01"
-    OFF
-)
+option(CH10_EX01_USE_SUPERBUILD "Enable superbuild for chapter 10, example 01" OFF)
 
 if(CH10_EX01_USE_SUPERBUILD)
     include(superbuild.cmake)
 else()
-    # User decided to not to use superbuild. We have to discover the
-    # dependencies from the current environment as usual.
-    find_package(
-        GTest
-        1.10.0
-        REQUIRED
-    )
-    find_package(
-        benchmark
-        1.6.1
-        REQUIRED
-    )
+    # User decided to not to use superbuild. We have to discover the dependencies
+    # from the current environment as usual.
+    find_package(GTest 1.10.0 REQUIRED)
+    find_package(benchmark 1.6.1 REQUIRED)
 endif()
 
 # A simple unit test target

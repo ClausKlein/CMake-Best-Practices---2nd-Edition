@@ -13,11 +13,10 @@ project(
     LANGUAGES CXX
 )
 
-# Since ExternalProject_Add makes the content available in cmake build step,
-# there is no clean way to utilize FindPackage(), since FindPackage() requires
-# package files to be present in the configure stage. For such scenarios, it is
-# better to stick with FetchContent since it allows you to fetch the content in
-# configure stage.
+# Since ExternalProject_Add makes the content available in cmake build step, there is
+# no clean way to utilize FindPackage(), since FindPackage() requires package files
+# to be present in the configure stage. For such scenarios, it is better to stick
+# with FetchContent since it allows you to fetch the content in configure stage.
 include(superbuild.cmake)
 
 # A simple unit test target

@@ -27,10 +27,7 @@ fetchcontent_makeavailable(si)
 add_executable(ch5_fetch_content_example)
 # set the c++ version required
 
-target_compile_features(
-    ch5_fetch_content_example
-    PRIVATE cxx_std_17
-)
+target_compile_features(ch5_fetch_content_example PRIVATE cxx_std_17)
 # Add source files to 'ch5_fetch_content_example' target
 target_sources(
     ch5_fetch_content_example

@@ -2,9 +2,9 @@
 #
 # SPDX-License-Identifier: MIT
 
-# Project directive is used for creating a child project for the targets we're
-# going to create for the component. This will allow us to use project()
-# variables in target creation.
+# Project directive is used for creating a child project for the targets we're going
+# to create for the component. This will allow us to use project() variables in
+# target creation.
 project(
     ch2_driver_application
     VERSION 1.0
@@ -12,8 +12,8 @@ project(
     LANGUAGES CXX
 )
 
-add_executable(ch2_driver_application) # Create an executable target named with
-                                       # the same name as
+add_executable(ch2_driver_application) # Create an executable target named with the
+                                       # same name as
 # project name (ch2.driver_application)
 target_sources(
     ch2_driver_application
@@ -25,10 +25,7 @@ target_link_libraries(
     PRIVATE ch2_framework_component1 ch2_framework_component2
 ) # Link target against ch2_framework_component1 and ch2_framework_component2
 
-target_compile_features(
-    ch2_driver_application
-    PUBLIC cxx_std_17
-)
+target_compile_features(ch2_driver_application PUBLIC cxx_std_17)
 
 install(
     TARGETS ch2_driver_application

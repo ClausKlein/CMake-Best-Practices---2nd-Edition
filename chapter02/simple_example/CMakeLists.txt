@@ -13,9 +13,7 @@ project(
 )
 
 # Generate compile_commands.json for better IDE integration
-set(CMAKE_EXPORT_COMPILE_COMMANDS
-    ON
-)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Add an executable target named `chapter2_simple_example`
 add_executable(chapter2_simple_example)

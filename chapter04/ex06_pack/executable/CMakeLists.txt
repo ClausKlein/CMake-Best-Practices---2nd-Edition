@@ -13,16 +13,10 @@ project(
 )
 
 # Define the executable that will consume the ch4_ex05_lib package
-add_executable(
-    ch4_ex06_executable
-    src/main.cpp
-)
+add_executable(ch4_ex06_executable src/main.cpp)
 
 # Set the required C++ standard for the target
-target_compile_features(
-    ch4_ex06_executable
-    PRIVATE cxx_std_17
-)
+target_compile_features(ch4_ex06_executable PRIVATE cxx_std_17)
 
 # Link executable target to library target
 target_link_libraries(
@@ -30,4 +24,6 @@ target_link_libraries(
     PRIVATE ch4_ex06_library
 )
 
-install(TARGETS ch4_ex06_executable)
+install(
+    TARGETS ch4_ex06_executable
+)

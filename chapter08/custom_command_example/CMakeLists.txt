@@ -13,14 +13,11 @@ project(
 )
 
 # define a executable target
-add_executable(
-    ch8_custom_command_example
-    src/main.cpp
-)
+add_executable(ch8_custom_command_example src/main.cpp)
 
-# add a custom command as post build action to the executable target. the
-# command creates a sha256 hash of the output file created by the executable
-# target by using cmake in script mode
+# add a custom command as post build action to the executable target. the command
+# creates a sha256 hash of the output file created by the executable target by using
+# cmake in script mode
 add_custom_command(
     TARGET ch8_custom_command_example
     POST_BUILD

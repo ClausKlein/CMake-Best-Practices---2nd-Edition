@@ -11,7 +11,4 @@ project(
     LANGUAGES CXX
 )
 
-add_executable(
-    ch9_simple_executable
-    src/main.cc
-)
+add_executable(ch9_simple_executable src/main.cc)
