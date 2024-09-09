@@ -28,6 +28,5 @@ add_custom_command(
 # As the target depends on the output of the custom command an implicit
 # dependency is created
 add_executable(
-    ch8_create_source_file_example
-    ${CMAKE_CURRENT_BINARY_DIR}/main.cpp
+    ch8_create_source_file_example ${CMAKE_CURRENT_BINARY_DIR}/main.cpp
 )

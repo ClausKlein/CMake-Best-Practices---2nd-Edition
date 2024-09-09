@@ -16,71 +16,47 @@ project(
 
 # set the postfix "d" for the resulting .so or .dll files when building the
 # library in debug mode
-set(CMAKE_DEBUG_POSTFIX
-    d
-)
+set(CMAKE_DEBUG_POSTFIX d)
 
 # add the library target
 add_library(ch3_hello_shared SHARED)
 # Add an alis for the library target
-add_library(
-    ch3_hello_shared::ch3_hello_shared
-    ALIAS
-    ch3_hello_shared
-)
+add_library(ch3_hello_shared::ch3_hello_shared ALIAS ch3_hello_shared)
 
 # set properties for the target. VERSION set the library version to the project
 # version * SOVERSION set the compatibility  version for the library to the
 # major number of the version
 set_target_properties(
-    ch3_hello_shared
-    PROPERTIES VERSION ${PROJECT_VERSION}
-               SOVERSION ${PROJECT_VERSION_MAJOR}
+    ch3_hello_shared PROPERTIES VERSION ${PROJECT_VERSION}
+                                SOVERSION ${PROJECT_VERSION_MAJOR}
 )
 
 # add sources to the library target
-target_sources(
-    ch3_hello_shared
-    PRIVATE src/hello.cpp src/internal.cpp
-)
+target_sources(ch3_hello_shared PRIVATE src/hello.cpp src/internal.cpp)
 
 # define the C++ standard needed to compile this library and make it visible to
 # dependers
-target_compile_features(
-    ch3_hello_shared
-    PUBLIC cxx_std_17
-)
+target_compile_features(ch3_hello_shared PUBLIC cxx_std_17)
 
 # set the include directories
 target_include_directories(
-    ch3_hello_shared
-    PRIVATE src/ch3_hello_shared
-    PUBLIC include
+    ch3_hello_shared PRIVATE src/ch3_hello_shared PUBLIC include
 )
 
 # if using limited visibility, set CXX_VISIBILILTY_PRESET to "hidden"
 include(GenerateExportHeader)
-set_property(
-    TARGET ch3_hello_shared
-    PROPERTY CXX_VISIBILITY_PRESET "hidden"
-)
+set_property(TARGET ch3_hello_shared PROPERTY CXX_VISIBILITY_PRESET "hidden")
 # Hide inlined functions by default, reducing the size of the library
-set_property(
-    TARGET ch3_hello_shared
-    PROPERTY VISIBILITY_INLINES_HIDDEN TRUE
-)
+set_property(TARGET ch3_hello_shared PROPERTY VISIBILITY_INLINES_HIDDEN TRUE)
 # this command generates a header file in the CMAKE_CURRENT_BINARY_DIR which
 # sets the visibility attributes according to the compiler settings
 generate_export_header(
-    ch3_hello_shared
-    EXPORT_FILE_NAME
-    export/hello/export_hello.hpp
+    ch3_hello_shared EXPORT_FILE_NAME export/hello/export_hello.hpp
 )
 # Add CMAKE_CURRENT_BINARY_DIR to the include path so the generated header can
 # be found
 target_include_directories(
-    ch3_hello_shared
-    PUBLIC "${CMAKE_CURRENT_BINARY_DIR}/export"
+    ch3_hello_shared PUBLIC "${CMAKE_CURRENT_BINARY_DIR}/export"
 )
 
 # An alternative but not recommended way export the symbols is to use

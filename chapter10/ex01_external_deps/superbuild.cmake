@@ -14,16 +14,14 @@ message(
 # Declare google benchmark dependency details. We will explicitly require 1.6.1
 # version this time.
 fetchcontent_declare(
-    benchmark
-    GIT_REPOSITORY https://github.com/google/benchmark.git
+    benchmark GIT_REPOSITORY https://github.com/google/benchmark.git
     GIT_TAG v1.6.1
 )
 
 # Declare google test dependency details. We will explicitly require 1.10.0
 # version this time.
 fetchcontent_declare(
-    GTest
-    GIT_REPOSITORY https://github.com/google/googletest.git
+    GTest GIT_REPOSITORY https://github.com/google/googletest.git
     GIT_TAG release-1.11.0
 )
 
@@ -37,10 +35,6 @@ fetchcontent_declare(
 fetchcontent_makeavailable(GTest benchmark)
 # To make target names compatible with find_package(...), so we can switch
 # between superbuild and find_package_(...) easily.
-add_library(
-    GTest::Main
-    ALIAS
-    gtest_main
-)
+add_library(GTest::Main ALIAS gtest_main)
 # Google benchmark already defines benchmark::benchmark target, so it is not
 # necessary to define an alias for it.

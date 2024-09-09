@@ -19,32 +19,18 @@ add_library(androidlib)
 # version * SOVERSION set the compatibility  version for the library to the
 # major number of the version
 set_target_properties(
-    androidlib
-    PROPERTIES VERSION ${PROJECT_VERSION}
-               SOVERSION ${PROJECT_VERSION_MAJOR}
+    androidlib PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION
+                                                     ${PROJECT_VERSION_MAJOR}
 )
 
 # add sources to the library target
-target_sources(
-    androidlib
-    PRIVATE src/hello.cpp src/internal.cpp
-)
+target_sources(androidlib PRIVATE src/hello.cpp src/internal.cpp)
 
 # define the C++ standard needed to compile this library and make it visible to
 # dependers
-target_compile_features(
-    androidlib
-    PUBLIC cxx_std_17
-)
+target_compile_features(androidlib PUBLIC cxx_std_17)
 
 # set the include directories
-target_include_directories(
-    androidlib
-    PRIVATE src/androidlib
-    PUBLIC include
-)
+target_include_directories(androidlib PRIVATE src/androidlib PUBLIC include)
 
-install(
-    TARGETS androidlib
-    DESTINATION lib
-)
+install(TARGETS androidlib DESTINATION lib)

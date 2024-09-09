@@ -18,10 +18,7 @@ project(
 # Search the package OpenSSL and its component SSL. To have the configuration
 # fail if not found, add the REQUIRED keyword like this: find_package(OpenSSL
 # COMPONENTS SSL REQUIRED)
-find_package(
-    OpenSSL
-    COMPONENTS SSL
-)
+find_package(OpenSSL COMPONENTS SSL)
 
 # disable debugging again set(CMAKE_FIND_DEBUG_MODE FALSE )
 
@@ -36,18 +33,9 @@ endif()
 add_executable(ch5_find_package_example)
 # set the c++ version required
 
-target_compile_features(
-    ch5_find_package_example
-    PRIVATE cxx_std_17
-)
+target_compile_features(ch5_find_package_example PRIVATE cxx_std_17)
 # Add source files to 'ch5_find_package_example' target
-target_sources(
-    ch5_find_package_example
-    PRIVATE src/main.cpp
-)
+target_sources(ch5_find_package_example PRIVATE src/main.cpp)
 
 # link the openssl library to the executable
-target_link_libraries(
-    ch5_find_package_example
-    PRIVATE OpenSSL::SSL
-)
+target_link_libraries(ch5_find_package_example PRIVATE OpenSSL::SSL)

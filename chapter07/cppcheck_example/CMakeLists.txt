@@ -12,18 +12,11 @@ project(
     LANGUAGES CXX
 )
 
-find_program(
-    CPPCHECK_EXECUTABLE
-    NAMES cppcheck
-)
+find_program(CPPCHECK_EXECUTABLE NAMES cppcheck)
 
 # search for the cppcheck executable if it exists enable it
 if(CPPCHECK_EXECUTABLE)
-    option(
-        ENABLE_CPPCHECK
-        "Enable cppcheck"
-        ON
-    )
+    option(ENABLE_CPPCHECK "Enable cppcheck" ON)
 
     # setting the flags for cppcheck, if --error-exitcode=1 is enabled
     # compilation will fail if an error is detected
@@ -41,14 +34,10 @@ if(CPPCHECK_EXECUTABLE)
 endif()
 
 add_executable(ch7_cppcheck_example)
-target_sources(
-    ch7_cppcheck_example
-    PRIVATE src/main.cpp
-)
+target_sources(ch7_cppcheck_example PRIVATE src/main.cpp)
 # Enable cppcheck for the target
 if(ENABLE_CPPCHECK)
     set_target_properties(
-        ch7_cppcheck_example
-        PROPERTIES CXX_CPPCHECK "${CPPCHECK_COMMAND}"
+        ch7_cppcheck_example PROPERTIES CXX_CPPCHECK "${CPPCHECK_COMMAND}"
     )
 endif()

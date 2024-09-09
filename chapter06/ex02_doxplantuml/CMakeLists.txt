@@ -18,8 +18,7 @@ project(
 find_path(
     PLANTUML_JAR_PATH
     NAMES plantuml.jar
-    HINTS "/usr/share/plantuml"
-          "C:/Program Files/PlantUML"
+    HINTS "/usr/share/plantuml" "C:/Program Files/PlantUML"
           "C:/ProgramData/chocolatey/lib/plantuml/tools"
           "/usr/local/Cellar/plantuml@1.2021.13/1.2021.13/libexec"
 )
@@ -46,40 +45,22 @@ endif()
 
 # Override the default doxygen output directory, which is
 # CMAKE_CURRENT_BINARY_DIR.
-set(DOXYGEN_OUTPUT_DIRECTORY
-    "${CMAKE_CURRENT_BINARY_DIR}/docs"
-)
+set(DOXYGEN_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/docs")
 # Enable HTML documentation generation
-set(DOXYGEN_GENERATE_HTML
-    YES
-)
+set(DOXYGEN_GENERATE_HTML YES)
 # Enable autolink support
-set(DOXYGEN_AUTOLINK_SUPPORT
-    YES
-)
+set(DOXYGEN_AUTOLINK_SUPPORT YES)
 # Tell the Doxygen the PlantUML JAR path
-set(DOXYGEN_PLANTUML_JAR_PATH
-    "${PLANTUML_JAR_PATH}"
-)
+set(DOXYGEN_PLANTUML_JAR_PATH "${PLANTUML_JAR_PATH}")
 # Suppress the output messages
-set(DOXYGEN_QUIET
-    YES
-)
+set(DOXYGEN_QUIET YES)
 # ##############################################################################
 # Create an executable target that consumes the library
-add_executable(
-    ch6_ex02_doxplantuml
-    src/main.cpp
-)
+add_executable(ch6_ex02_doxplantuml src/main.cpp)
 # Compile features for the executable target
-target_compile_features(
-    ch6_ex02_doxplantuml
-    PRIVATE cxx_std_17
-)
+target_compile_features(ch6_ex02_doxplantuml PRIVATE cxx_std_17)
 
 doxygen_add_docs(
-    ch6_ex02_doxdocgen_generate_docs
-    "${CMAKE_CURRENT_LIST_DIR}"
-    ALL
+    ch6_ex02_doxdocgen_generate_docs "${CMAKE_CURRENT_LIST_DIR}" ALL
     COMMENT "Generating documentation for Chapter 6 - Example 02 with Doxygen"
 )

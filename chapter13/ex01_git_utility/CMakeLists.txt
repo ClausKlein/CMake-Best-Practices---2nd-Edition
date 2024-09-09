@@ -5,11 +5,9 @@
 
 cmake_minimum_required(VERSION 3.25...3.30)
 
-project(
-    ch13_ex01_git_module
-    VERSION 1.0
-    DESCRIPTION "Chapter 13 Example 01, git utility module example"
-    LANGUAGES CXX
+project(ch13_ex01_git_module VERSION 1.0
+        DESCRIPTION "Chapter 13 Example 01, git utility module example"
+        LANGUAGES CXX
 )
 
 include(cmake/git.cmake)

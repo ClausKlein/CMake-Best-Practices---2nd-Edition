@@ -13,10 +13,7 @@ project(
 )
 
 # Create an executable target
-add_executable(
-    ch8_create_tar_archive_example
-    src/main.cpp
-)
+add_executable(ch8_create_tar_archive_example src/main.cpp)
 
 # Add a custom command that creates a tar.gz archive from the output of the
 # executable target ch8_create_tar_archive_example

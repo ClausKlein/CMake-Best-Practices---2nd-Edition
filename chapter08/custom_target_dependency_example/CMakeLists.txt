@@ -27,7 +27,4 @@ add_custom_target(
         "Creating sha256 hash using a custom target $<TARGET_FILE:ch8_generate_hash_using_a_target>"
 )
 
-add_executable(
-    ch8_generate_hash_using_a_target
-    src/main.cpp
-)
+add_executable(ch8_generate_hash_using_a_target src/main.cpp)

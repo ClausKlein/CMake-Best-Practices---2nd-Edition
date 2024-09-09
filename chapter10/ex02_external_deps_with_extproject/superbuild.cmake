@@ -29,11 +29,7 @@ set(CATCH2_INCLUDE_DIR
 file(MAKE_DIRECTORY ${CATCH2_INCLUDE_DIR})
 
 # Define an imported library for the catch2
-add_library(
-    catch2
-    IMPORTED
-    INTERFACE
-)
+add_library(catch2 IMPORTED INTERFACE)
 # Make the library dependent on the ExternalProject target, so CMake knows that
 # in order to use this target, the ExternalProject target must be built first
 add_dependencies(catch2 catch2_download)
@@ -41,6 +37,5 @@ add_dependencies(catch2 catch2_download)
 # so the libraries depending on catch2 will automatically be able to include
 # catch2 headers.
 set_target_properties(
-    catch2
-    PROPERTIES "INTERFACE_INCLUDE_DIRECTORIES" "${CATCH2_INCLUDE_DIR}"
+    catch2 PROPERTIES "INTERFACE_INCLUDE_DIRECTORIES" "${CATCH2_INCLUDE_DIR}"
 )

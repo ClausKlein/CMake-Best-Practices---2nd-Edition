@@ -15,29 +15,18 @@ project(
 # Fetch Catch2 from github and make it available
 include(FetchContent)
 fetchcontent_declare(
-    Catch2
-    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+    Catch2 GIT_REPOSITORY https://github.com/catchorg/Catch2.git
     GIT_TAG v2.13.8
 )
 
 fetchcontent_makeavailable(Catch2)
-list(
-    APPEND
-    CMAKE_MODULE_PATH
-    ${Catch2_SOURCE_DIR}/contrib/
-)
+list(APPEND CMAKE_MODULE_PATH ${Catch2_SOURCE_DIR}/contrib/)
 include(CTest)
 include(Catch)
 
 add_executable(ch7_test_discovery_example)
-target_sources(
-    ch7_test_discovery_example
-    PRIVATE src/test.cpp
-)
-target_link_libraries(
-    ch7_test_discovery_example
-    PRIVATE Catch2::Catch2
-)
+target_sources(ch7_test_discovery_example PRIVATE src/test.cpp)
+target_link_libraries(ch7_test_discovery_example PRIVATE Catch2::Catch2)
 
 # use the discovery function of catch2
 catch_discover_tests(ch7_test_discovery_example)

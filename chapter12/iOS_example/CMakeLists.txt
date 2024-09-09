@@ -19,32 +19,18 @@ add_library(ioslib)
 # version * SOVERSION set the compatibility  version for the library to the
 # major number of the version
 set_target_properties(
-    ioslib
-    PROPERTIES VERSION ${PROJECT_VERSION}
-               SOVERSION ${PROJECT_VERSION_MAJOR}
+    ioslib PROPERTIES VERSION ${PROJECT_VERSION} SOVERSION
+                                                 ${PROJECT_VERSION_MAJOR}
 )
 
 # add sources to the library target
-target_sources(
-    ioslib
-    PRIVATE src/hello.cpp src/internal.cpp
-)
+target_sources(ioslib PRIVATE src/hello.cpp src/internal.cpp)
 
 # define the C++ standard needed to compile this library and make it visible to
 # dependers
-target_compile_features(
-    ioslib
-    PUBLIC cxx_std_17
-)
+target_compile_features(ioslib PUBLIC cxx_std_17)
 
 # set the include directories
-target_include_directories(
-    ioslib
-    PRIVATE src/ioslib
-    PUBLIC include
-)
+target_include_directories(ioslib PRIVATE src/ioslib PUBLIC include)
 
-install(
-    TARGETS ioslib
-    DESTINATION lib
-)
+install(TARGETS ioslib DESTINATION lib)

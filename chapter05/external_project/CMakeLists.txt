@@ -5,8 +5,7 @@
 cmake_minimum_required(VERSION 3.25...3.30)
 
 project(
-    ch5_external_project_example
-    VERSION 1.0
+    ch5_external_project_example VERSION 1.0
     DESCRIPTION "A simple C++ project to demonstrate fetching external content"
     LANGUAGES CXX
 )
@@ -25,16 +24,13 @@ externalproject_add(
 # Retrieve the installation directory of bertrand
 externalproject_get_property(bertrand INSTALL_DIR)
 # Populate the installation directory to the variable BERTRAND_INSTALL_DIR
-set(BERTRAND_INSTALL_DIR
-    "${INSTALL_DIR}"
-)
+set(BERTRAND_INSTALL_DIR "${INSTALL_DIR}")
 
 # Add an extra step after the build step to extract and archive the license file
 externalproject_add_step(
     bertrand copy_license
-    COMMAND
-        ${CMAKE_COMMAND} -E tar "cvzf"
-        ${CMAKE_CURRENT_BINARY_DIR}/licenses.tar.gz <SOURCE_DIR>/LICENSE
+    COMMAND ${CMAKE_COMMAND} -E tar "cvzf"
+            ${CMAKE_CURRENT_BINARY_DIR}/licenses.tar.gz <SOURCE_DIR>/LICENSE
     DEPENDEES build
     ALWAYS YES
 )
@@ -43,21 +39,14 @@ externalproject_add_step(
 add_executable(ch5_external_project_example)
 # set the c++ version required
 
-target_compile_features(
-    ch5_external_project_example
-    PRIVATE cxx_std_17
-)
+target_compile_features(ch5_external_project_example PRIVATE cxx_std_17)
 # Add source files to 'ch5_external_project_example' target
-target_sources(
-    ch5_external_project_example
-    PRIVATE src/main.cpp
-)
+target_sources(ch5_external_project_example PRIVATE src/main.cpp)
 # make the executable to be built depend on the external project to force
 # downloading first
 add_dependencies(ch5_external_project_example bertrand)
 
 # make the header file for bertrand available
 target_include_directories(
-    ch5_external_project_example
-    PRIVATE ${BERTRAND_INSTALL_DIR}/include
+    ch5_external_project_example PRIVATE ${BERTRAND_INSTALL_DIR}/include
 )

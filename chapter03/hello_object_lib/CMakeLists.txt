@@ -16,21 +16,11 @@ project(
 add_library(ch3_hello_object OBJECT)
 
 # add sources to the library target
-target_sources(
-    ch3_hello_object
-    PRIVATE src/hello_object.cpp
-)
+target_sources(ch3_hello_object PRIVATE src/hello_object.cpp)
 
 # define the C++ standard needed to compile this library and make it visible to
 # dependers
-target_compile_features(
-    ch3_hello_object
-    PUBLIC cxx_std_17
-)
+target_compile_features(ch3_hello_object PUBLIC cxx_std_17)
 
 # set the include directories
-target_include_directories(
-    ch3_hello_object
-    PRIVATE src/hello
-    PUBLIC include
-)
+target_include_directories(ch3_hello_object PRIVATE src/hello PUBLIC include)

@@ -5,11 +5,8 @@
 
 cmake_minimum_required(VERSION 3.25...3.30)
 
-project(
-    ch4_ex07_pack
-    VERSION 1.0
-    DESCRIPTION "Chapter 4 Example 07, Packaging with CPack"
-    LANGUAGES CXX
+project(ch4_ex07_pack VERSION 1.0
+        DESCRIPTION "Chapter 4 Example 07, Packaging with CPack" LANGUAGES CXX
 )
 
 if(NOT PROJECT_IS_TOP_LEVEL)
@@ -25,13 +22,8 @@ add_subdirectory(library)
 if(WIN32)
     # if it is a debug build, we want to install debug libraries with the
     # InstallRequiredSystemLibraries module
-    if(CMAKE_BUILD_TYPE
-       STREQUAL
-       "Debug"
-    )
-        set(CMAKE_INSTALL_DEBUG_LIBRARIES
-            TRUE
-        )
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+        set(CMAKE_INSTALL_DEBUG_LIBRARIES TRUE)
     endif()
     # this includes compiler provided runtime libraries on windows
     include(InstallRequiredSystemLibraries)
@@ -50,17 +42,11 @@ install(
 
 # We will not explicitly specify project name and version here and let CPack to
 # get project name and version from the project()
-set(CPACK_PACKAGE_VENDOR
-    "CBP Authors"
-)
+set(CPACK_PACKAGE_VENDOR "CBP Authors")
 # Enable NSIS and TBZ2 generators by default
-set(CPACK_GENERATOR
-    "NSIS;TBZ2"
-)
+set(CPACK_GENERATOR "NSIS;TBZ2")
 # Use all available cores when parallelism is supported
-set(CPACK_THREADS
-    0
-)
+set(CPACK_THREADS 0)
 # The DEB generator requires CPACK_DEBIAN_PACKAGE_MAINTAINER value to be set.
 # Enable packaging support for the project
 include(CPack)

@@ -12,38 +12,21 @@ project(
     LANGUAGES CXX
 )
 
-find_program(
-    CPPLINT_EXECUTABLE
-    NAMES cppcheck
-)
+find_program(CPPLINT_EXECUTABLE NAMES cppcheck)
 
 if(CPPLINT_EXECUTABLE)
-    option(
-        ENABLE_CPPLINT
-        "Enable cppcheck"
-        ON
-    )
+    option(ENABLE_CPPLINT "Enable cppcheck" ON)
     message(STATUS "CPPlint enabled")
 endif()
 
-set(CPPLINT_COMMAND
-    ""
-)
+set(CPPLINT_COMMAND "")
 
 if(ENABLE_CPPLINT)
-    list(
-        APPEND
-        CPPLINT_COMMAND
-        "${CPPLINT_EXECUTABLE}"
-    )
+    list(APPEND CPPLINT_COMMAND "${CPPLINT_EXECUTABLE}")
 endif()
 
 add_executable(ch7_cpplint_example)
-target_sources(
-    ch7_cpplint_example
-    PRIVATE src/main.cpp
-)
+target_sources(ch7_cpplint_example PRIVATE src/main.cpp)
 set_target_properties(
-    ch7_cpplint_example
-    PROPERTIES CXX_CPPLINT "${CPPLINT_COMMAND}"
+    ch7_cpplint_example PROPERTIES CXX_CPPLINT "${CPPLINT_COMMAND}"
 )

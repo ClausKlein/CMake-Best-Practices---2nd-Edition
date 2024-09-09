@@ -4,14 +4,9 @@ cmake_minimum_required(VERSION 3.25...3.30)
 # similar Additionally to the default paths look in ${PROJECT_SOURCE_DIR}/dep/
 # in each subdirectory append bin lib build/Release and build/Debug
 find_library(
-    OBSCURE_LIBRARY
-    NAMES obscure
-    HINTS ${PROJECT_SOURCE_DIR}/dep/ ${CMAKE_CURRENT_BINARY_DIR}/dep
-    PATH_SUFFIXES
-        lib
-        bin
-        build/Release
-        build/Debug
+    OBSCURE_LIBRARY NAMES obscure HINTS ${PROJECT_SOURCE_DIR}/dep/
+                                        ${CMAKE_CURRENT_BINARY_DIR}/dep
+    PATH_SUFFIXES lib bin build/Release build/Debug
 )
 
 # find the main header belonging to the obscure lib
@@ -27,26 +22,16 @@ find_path(
 include(FindPackageHandleStandardArgs)
 
 find_package_handle_standard_args(
-    Obscure
-    DEFAULT_MSG
-    OBSCURE_LIBRARY
-    OBSCURE_INCLUDE_DIR
+    Obscure DEFAULT_MSG OBSCURE_LIBRARY OBSCURE_INCLUDE_DIR
 )
 
 mark_as_advanced(OBSCURE_LIBRARY OBSCURE_INCLUDE_DIR)
 
 # if not building the library itself
-if(NOT
-   TARGET
-   Obscure::Obscure
-)
+if(NOT TARGET Obscure::Obscure)
 
     # make the library target available
-    add_library(
-        Obscure::Obscure
-        UNKNOWN
-        IMPORTED
-    )
+    add_library(Obscure::Obscure UNKNOWN IMPORTED)
 
     # set the properties so the artifacts of the packages can be found
     set_target_properties(
