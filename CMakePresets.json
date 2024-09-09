@@ -233,7 +233,7 @@
     "buildPresets": [
         {
             "name": "ci-ninja-debug-build",
-            "configurePreset": "ci-ninja-debug-tidy"
+            "configurePreset": "ci-ninja-debug"
         },
         {
             "name": "ci-msvc-debug",
@@ -269,7 +269,7 @@
     "testPresets": [
         {
             "name": "ci-unit-tests-debug",
-            "configurePreset": "ci-ninja-debug-tidy",
+            "configurePreset": "ci-ninja-debug",
             "configuration": "Debug",
             "output": {
                 "outputOnFailure": true
@@ -300,7 +300,7 @@
     "packagePresets": [
         {
             "name": "ci-package-tgz",
-            "configurePreset": "ci-ninja-debug-tidy",
+            "configurePreset": "ci-ninja-debug",
             "generators": [
                 "TGZ"
             ],
@@ -315,7 +315,7 @@
             "steps": [
                 {
                     "type": "configure",
-                    "name": "ci-ninja-debug-tidy"
+                    "name": "ci-ninja-debug"
                 },
                 {
                     "type": "build",
