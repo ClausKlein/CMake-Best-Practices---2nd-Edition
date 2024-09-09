@@ -1,0 +1,39 @@
+---
+Checks: "-*,\
+boost-*,\
+bugprone-*,\
+-bugprone-exception-escape,\
+cert-*,\
+clang-analyzer-*,\
+-cppcoreguidelines-*,\
+-cppcoreguidelines-avoid-*,\
+-cppcoreguidelines-no-*,\
+-cppcoreguidelines-prefere-*,\
+-cppcoreguidelines-slicing,\
+-cppcoreguidelines-use-*,\
+concurrency-*,\
+hicpp-*,\
+-hicpp-vararg,\
+misc-*,\
+-misc-include-cleaner,\
+-misc-non-private-member-variables-in-classes,\
+-misc-unused-parameters,\
+modernize-*,\
+-modernize-macro-to-enum,\
+-modernize-use-trailing-return-type,\
+performance-*,\
+-performance-avoid-endl,\
+portability-*,\
+readability-*,\
+-readability-identifier-naming,\
+-readability-identifier-length,\
+-*avoid-c-arrays,\
+-*magic-numbers,\
+-*named-parameter,\
+"
+WarningsAsErrors: ''
+HeaderFilterRegex: 'chapter.*'
+FormatStyle:     file
+User:            CK
+...
+

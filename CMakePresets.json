@@ -72,7 +72,7 @@
             "hidden": true,
             "cacheVariables": {
                 "CMAKE_CXX_CLANG_TIDY":
-                    "clang-tidy;--header-filter=${sourceDir}/*;-checks=-*,modernize*,-modernize-use-trailing-return-type,-modernize-macro-to-enum,-modernize-concat-nested-namespaces;-extra-arg=-std=c++17"
+                    "clang-tidy;--header-filter=${sourceDir}/*;-checks=-*,modernize*,-modernize-use-trailing-return-type,-modernize-macro-to-enum,-extra-arg=-std=c++17"
             }
         },
         {
