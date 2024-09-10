@@ -5,12 +5,12 @@
 namespace hello {
 /// Example class that is explicitly exported into a dll
 class Hello {
-public:
-  Hello(const std::string &name) : name_{name} {}
+  public:
+    Hello(const std::string &name) : name_{name} {}
 
-  void greet() const;
+    void greet() const;
 
-private:
-  const std::string name_;
+  private:
+    const std::string name_;
 };
 } // namespace hello

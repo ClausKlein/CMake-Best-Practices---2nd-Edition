@@ -11,6 +11,6 @@
 #include <chapter4/ex05/lib.hpp>
 
 int main(void) {
-  chapter4::ex05::greeter g;
-  g.greet();
+    chapter4::ex05::greeter g;
+    g.greet();
 }

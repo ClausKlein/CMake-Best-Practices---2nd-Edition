@@ -17,12 +17,12 @@
  * @return int Exit code
  */
 int main(void) {
-  chapter6::ex01::calculator calc;
+    chapter6::ex01::calculator calc;
 
-  std::cout << "5 + 6: " << calc.sum(5, 6) << std::endl;
-  std::cout << "5 - 6: " << calc.sub(5, 6) << std::endl;
-  std::cout << "5 * 6: " << calc.mul(5, 6) << std::endl;
-  std::cout << "5 / 6: " << calc.div(5, 6) << std::endl;
+    std::cout << "5 + 6: " << calc.sum(5, 6) << std::endl;
+    std::cout << "5 - 6: " << calc.sub(5, 6) << std::endl;
+    std::cout << "5 * 6: " << calc.mul(5, 6) << std::endl;
+    std::cout << "5 / 6: " << calc.div(5, 6) << std::endl;
 
-  // TIP OF THE DAY: return value is optional in main() function
+    // TIP OF THE DAY: return value is optional in main() function
 }

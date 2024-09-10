@@ -3,7 +3,7 @@
 #include <catch2/catch.hpp>
 
 std::uint64_t Fibonacci(std::uint64_t number) {
-  return number < 2 ? 1 : Fibonacci(number - 1) + Fibonacci(number - 2);
+    return number < 2 ? 1 : Fibonacci(number - 1) + Fibonacci(number - 2);
 }
 
 TEST_CASE("Fibonacci(0) returns 1") { REQUIRE(Fibonacci(0) == 1); }

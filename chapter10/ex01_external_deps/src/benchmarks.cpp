@@ -13,10 +13,10 @@
 
 // Define a simple benchmark
 static void string_append(::benchmark::State &st) {
-  std::string s;
-  for (auto _ : st) {
-    s += "a";
-  }
+    std::string s;
+    for (auto _ : st) {
+        s += "a";
+    }
 }
 
 // Register benchmark function

@@ -13,11 +13,11 @@
 namespace framework::components {
 
 component1::component1() {
-  std::cout << "Component 1 is constructed" << std::endl;
+    std::cout << "Component 1 is constructed" << std::endl;
 }
 
 component1::~component1() {
-  std::cout << "Component 1 is destructed" << std::endl;
+    std::cout << "Component 1 is destructed" << std::endl;
 }
 
 bool component1::do_stuff() const { return false; }

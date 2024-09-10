@@ -1,10 +1,16 @@
+# We'll use defaults from the LLVM style, but with 4 columns indentation.
+BasedOnStyle: Llvm
+IndentWidth: 4
 ---
 Language: Json
-IndentWidth: 4
 UseTab: Never
 ---
+Language: JavaScript
+# Don't format .js files.
+DisableFormat: true
+---
 Language: Cpp
-BasedOnStyle: Llvm
+# TBD IndentWidth: 2
 
 # ColumnLimit: 80
 # AccessModifierOffset: -2
@@ -13,9 +19,6 @@ BasedOnStyle: Llvm
 # ConstructorInitializerIndentWidth: 4
 # ContinuationIndentWidth: 4
 # DerivePointerAlignment: false
-# #
-# # TODO: TBD 4 instead of 2? CK
-# # XXX IndentWidth: 4
 # InsertBraces: true
 # InsertNewlineAtEOF: true
 # NamespaceIndentation: None
@@ -32,3 +35,7 @@ BasedOnStyle: Llvm
 # BreakBeforeBraces: Custom
 # BraceWrapping:
 #   AfterNamespace: true
+
+---
+# XXX Language: Objective-C
+# Implicit supported .mm files.

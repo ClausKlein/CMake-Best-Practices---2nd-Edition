@@ -1,9 +1,9 @@
 #import <UIKit/UIKit.h>
 
 // AppDelegate Interface
-@interface AppDelegate : UIResponder<UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow* window;
+@property(strong, nonatomic) UIWindow *window;
 
 @end
 
@@ -15,11 +15,10 @@
 // ViewController Implementation
 @implementation ViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Additional setup if needed
-    UILabel* label =
+    UILabel *label =
         [[UILabel alloc] initWithFrame:CGRectMake(50, 200, 300, 50)];
     label.text = @"Hello, World!";
     label.textAlignment = NSTextAlignmentCenter;
@@ -31,15 +30,14 @@
 // AppDelegate Implementation
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication*)application
-    didFinishLaunchingWithOptions:(NSDictionary*)launchOptions
-{
+- (BOOL)application:(UIApplication *)application
+    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window =
         [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main"
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main"
                                                          bundle:nil];
-    ViewController* viewController =
+    ViewController *viewController =
         [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
 
     self.window.rootViewController = viewController;
@@ -51,11 +49,9 @@
 @end
 
 // Main
-int
-main(int argc, char* argv[])
-{
+int main(int argc, char *argv[]) {
     @autoreleasepool {
-        return UIApplicationMain(
-            argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        return UIApplicationMain(argc, argv, nil,
+                                 NSStringFromClass([AppDelegate class]));
     }
 }

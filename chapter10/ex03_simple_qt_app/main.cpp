@@ -12,9 +12,9 @@
 #include <qpushbutton.h>
 
 int main(int argc, char **argv) {
-  QApplication a(argc, argv);
-  QPushButton hello("Hello from CMake Best Practices!", 0);
-  hello.resize(250, 30);
-  hello.show();
-  return a.exec();
+    QApplication a(argc, argv);
+    QPushButton hello("Hello from CMake Best Practices!", 0);
+    hello.resize(250, 30);
+    hello.show();
+    return a.exec();
 }

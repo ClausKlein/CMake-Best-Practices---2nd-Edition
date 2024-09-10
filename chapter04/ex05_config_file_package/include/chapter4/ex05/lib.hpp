@@ -13,10 +13,10 @@ namespace chapter4::ex05 {
  * @brief The 'greeter' class interface
  */
 class greeter {
-public:
-  /**
-   * Greet the caller.
-   */
-  void greet();
+  public:
+    /**
+     * Greet the caller.
+     */
+    void greet();
 }; // class greeter
 } // namespace chapter4::ex05

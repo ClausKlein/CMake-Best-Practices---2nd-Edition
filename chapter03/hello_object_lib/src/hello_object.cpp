@@ -4,6 +4,6 @@
 
 namespace hello_object {
 void HelloObject::greet() const {
-  std::cout << "Hello " << name_ << " From an object library\n";
+    std::cout << "Hello " << name_ << " From an object library\n";
 }
 } // namespace hello_object

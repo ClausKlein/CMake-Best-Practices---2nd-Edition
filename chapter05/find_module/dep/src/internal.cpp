@@ -4,6 +4,6 @@
 
 namespace obscure::details {
 void print_impl(const std::string &name) {
-  std::cout << "Hello " << name << " from an obscure library\n";
+    std::cout << "Hello " << name << " from an obscure library\n";
 }
 } // namespace obscure::details
