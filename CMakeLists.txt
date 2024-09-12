@@ -31,7 +31,7 @@ if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR)
 endif()
 
 # Add additional targets to your CMake project:
-if(EXISTS Format.cmake/CMakeLists.txt)
+if(EXISTS ${CMAKE_CURRENT_LIST_DIR}/Format.cmake/CMakeLists.txt)
     add_subdirectory(Format.cmake)
     # check-clang-format check-cmake-format check-format clang-format
     # cmake-format fix-clang-format fix-cmake-format fix-format format
