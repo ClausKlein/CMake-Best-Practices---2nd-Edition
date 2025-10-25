@@ -3,7 +3,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-cmake_minimum_required(VERSION 3.21.0)
+cmake_minimum_required(VERSION 3.28…4.1)
 
 project(
     ch10_ex03_simple_qt_app

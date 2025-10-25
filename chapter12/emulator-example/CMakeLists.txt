@@ -6,7 +6,7 @@
 #
 # SPDX-License-Identifier: MIT
 
-cmake_minimum_required(VERSION 3.25...3.30)
+cmake_minimum_required(VERSION 3.28…4.1)
 
 project(
     ch12_emulator_example

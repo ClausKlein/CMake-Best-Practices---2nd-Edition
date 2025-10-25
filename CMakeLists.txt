@@ -6,7 +6,7 @@
 # Specifies the minimum required CMake version to build this project (and
 # subprojects) Subprojects may override this value by specifying another version
 # requirement in their CMakeLists file (e.g. require a later version of CMake)
-cmake_minimum_required(VERSION 3.25...3.30)
+cmake_minimum_required(VERSION 3.28…4.1)
 
 # The main project
 project(
@@ -49,6 +49,7 @@ if(NOT DEFINED CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD 20)
     set(CMAKE_CXX_EXTENSIONS FALSE)
     set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+    set(CMAKE_CXX_SCAN_FOR_MODULES OFF)
 
     set(CMAKE_CXX_VISIBILITY_PRESET hidden)
     set(CMAKE_VISIBILITY_INLINES_HIDDEN TRUE)
@@ -87,7 +88,9 @@ add_subdirectory(chapter05)
 add_subdirectory(chapter06)
 add_subdirectory(chapter07)
 add_subdirectory(chapter08)
-# the chapter 10 examples are intended to be built standalone
+
+# the chapter 9, 10 examples are intended to be built standalone:
+# add_subdirectory(chapter09)
 # add_subdirectory(chapter10)
 
 # add chapter 11 examples only on Apple platforms

@@ -1,4 +1,4 @@
-# CMake Best Practices 
+# CMake Best Practices
 
 <a href="https://www.packtpub.com/en-us/product/cmake-best-practices-9781835880647?utm_source=github&utm_medium=repository&utm_campaign="><img src="https://content.packt.com/_/image/original/B30947/cover_image_large.jpg" alt="CMake Best Practices" height="256px" align="right"></a>
 
@@ -25,7 +25,7 @@ This book covers the following exciting features:
 
 If you feel this book is for you, get your [copy](https://www.amazon.com/dp/1835880657) today!
 
-<a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png" 
+<a href="https://www.packtpub.com/?utm_source=github&utm_medium=banner&utm_campaign=GitHubBanner"><img src="https://raw.githubusercontent.com/PacktPublishing/GitHub/master/GitHub.png"
 alt="https://www.packtpub.com/" border="5" /></a>
 
 ## Instructions and Navigations
@@ -33,11 +33,11 @@ All of the code is organized into folders.
 
 The code will look like the following:
 ```
-project( 
-"chapter1" 
-VERSION 1.0 
-DESCRIPTION "A simple C++ project to demonstrate basic CMake usage" 
-LANGUAGES CXX 
+project(
+"chapter1"
+VERSION 1.0
+DESCRIPTION "A simple C++ project to demonstrate basic CMake usage"
+LANGUAGES CXX
 )
 ```
 

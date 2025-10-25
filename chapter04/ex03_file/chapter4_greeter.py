@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 
-# CMakeLists file for the Chapter 4 Example nr. 01: 
+# CMakeLists file for the Chapter 4 Example nr. 01:
 # Installable executable
 #
 # SPDX-License-Identifier: MIT
 
 
 import os
+
 file_path = os.path.dirname(__file__)
 
 try:
@@ -14,4 +15,3 @@ try:
         print(file.readlines())
 except Exception as e:
     print(e)
-
